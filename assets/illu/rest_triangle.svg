@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="800px"
+   height="600px"
+   id="svg6229"
+   version="1.1"
+   inkscape:version="0.48.0 r9654"
+   sodipodi:docname="Neues Dokument 18">
+  <defs
+     id="defs6231" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.6"
+     inkscape:cx="400"
+     inkscape:cy="300"
+     inkscape:current-layer="layer1"
+     inkscape:document-units="px"
+     showgrid="false"
+     inkscape:window-width="1280"
+     inkscape:window-height="950"
+     inkscape:window-x="0"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata6234">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer1"
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer">
+    <g
+       id="g6250"
+       transform="matrix(10.408514,-1.2148126,1.2148126,10.408514,217.3601,156.90077)">
+      <g
+         id="background">
+	<rect
+   id="rect6241"
+   height="32"
+   width="32"
+   x="0"
+   y="0"
+   style="fill:none" />
+
+</g>
+      <g
+         id="rdf">
+	<path
+   id="path6244"
+   d="M 26.997,20.09 V 11.91 C 29.834,11.435 32,8.973 32,6 32,2.687 29.312,0 26,0 c -3.316,0 -6,2.687 -6,6 0,0.609 0.092,1.196 0.261,1.75 l -9.423,4.711 C 9.747,10.972 7.989,10 6,10 c -3.314,0 -6,2.687 -6,6 0,3.312 2.686,6 6,6 1.99,0 3.748,-0.973 4.839,-2.464 l 9.423,4.712 C 20.092,24.803 20,25.391 20,26 c 0,3.312 2.684,6 6,6 3.312,0 6,-2.688 6,-6 0,-2.972 -2.166,-5.435 -5.003,-5.91 z M 11.739,17.751 C 11.908,17.197 12,16.609 12,16 12,15.39 11.908,14.801 11.738,14.247 l 9.422,-4.71 c 0.903,1.235 2.266,2.109 3.839,2.374 v 8.18 c -1.573,0.265 -2.934,1.139 -3.838,2.372 l -9.422,-4.712 z"
+   inkscape:connector-curvature="0" />
+
+</g>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+       x="341.66666"
+       y="45"
+       id="text6256"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan6258"
+         x="341.66666"
+         y="45"
+         style="font-size:48px;font-weight:bold;-inkscape-font-specification:Arial Bold">Nouns</tspan><tspan
+         sodipodi:role="line"
+         x="341.66666"
+         y="81.382164"
+         style="font-size:24px;font-weight:normal;-inkscape-font-specification:Arial"
+         id="tspan6306">URIs</tspan><tspan
+         sodipodi:role="line"
+         x="341.66666"
+         y="109.81174"
+         style="font-size:24px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Courier New;-inkscape-font-specification:Courier New"
+         id="tspan6314">http://host/user/4711</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+       x="391.33853"
+       y="513.56512"
+       id="text6256-1"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan6258-5"
+         x="391.33853"
+         y="513.56512"
+         style="font-size:48px;font-weight:bold;-inkscape-font-specification:Arial Bold">Representations</tspan><tspan
+         sodipodi:role="line"
+         x="391.33853"
+         y="549.94727"
+         style="font-size:24px;font-weight:normal;-inkscape-font-specification:Arial"
+         id="tspan6310">Content-Types</tspan><tspan
+         sodipodi:role="line"
+         x="391.33853"
+         y="578.37689"
+         style="font-size:24px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Courier New;-inkscape-font-specification:Courier New"
+         id="tspan6312">XML, JSON, HTML,…</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+       x="28.005209"
+       y="263.56509"
+       id="text6256-10"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan6258-9"
+         x="28.005209"
+         y="263.56509"
+         style="font-size:48px;font-weight:bold;-inkscape-font-specification:Arial Bold">Verbs</tspan><tspan
+         sodipodi:role="line"
+         x="28.005209"
+         y="299.94727"
+         style="font-size:24px;font-weight:normal;-inkscape-font-specification:Arial"
+         id="tspan6304">HTTP Methods</tspan><tspan
+         sodipodi:role="line"
+         x="28.005209"
+         y="329.94727"
+         style="font-size:24px;font-weight:normal;-inkscape-font-specification:Courier New;font-family:Courier New;font-style:normal;font-stretch:normal;font-variant:normal"
+         id="tspan6316">GET, PUT,…</tspan></text>
+  </g>
+</svg>
