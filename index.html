@@ -51,11 +51,470 @@
 				</h2>
 				<h2 id="subtitle">Representational State Transfer<br>Distributed Architectures with HTTP</h2>
 				<p>
-					<img id="title-header" src='assets/images/header_865339_18831935.jpg'> 
+					<img id="title-header" src='assets/images/header_916823243_c868b446ac_o.jpg'> 
 					<img id="uulm-logo" src='lib/uulm/uulm_logo.svg'>
 				</p>
 			</article>
+
+			<article>
+				<h3>Background</h3>
+				<div style="width:80%">
+				<p></p>
+				<p>
+				<img src="assets/images/berb.png" style="border: 1px solid black; float:right; margin: 10px">
+				<span style="font-weight:bold;" class="med-color">Benjamin Erb</span><br/>
+				Student @ Ulm University<br/>
+				Computer Science and Media
+				</p>
+				<p><span style="font-weight:bold;">Interests:</span> web technologies, scalabale architectures, distributed systems and mobile/ubiquitous computing</p>
+				<div style="clear:both;"></div>
+				<p><span style="font-weight:bold;">Contact:</span><br/>
+				www: <a href="http://www.benjamin-erb.de/">benjamin-erb.de</a> / <a href="http://www.ioexception.de/">ioexception.de</a><br/>
+				twitter: <a href="http://www.twitter.com/b_erb">@b_erb</a><br/>
+				g+: <a href="http://www.twitter.com/b_erb">b.erb.io/+</a><br/>
+				<br/>
+				</p>
+				</div>
+			</article>
+		</section>
+
+		<section>
+			<header>Distributed Systems #101</header>
+			<article class="fill">
+				<h1>Distributed Systems #101</h1>
+			</article>
+			
+			<article class="fill">
+				<q style="font-size:140%; line-height:175%">A <span style="font-weight:bold" class="med-color">distributed system</span> is one in which the failure of a computer you didn't even know existed can render your own computer unusable.</q>
+					<div class='author'>Leslie Lamport</div>
+			</article>			
+			
+			<article class="fill">
+				<q style="font-size:140%; line-height:175%">A collection of independent computers that appears to its users as a single coherent system.</q>
+					<div class='author'>Andrew Tanenbaum</div>
+			</article>	
+			
+						
+			<article>
+				<h3>Distributed Systems – Why?</h3>
+				
+				<p class="build">
+					<img src="assets/illu/server.svg" style="width: 35%; float:left; margin: 10px">
+					<img src="assets/illu/servers.svg" style="width: 35%; float:right; margin: 10px">
+				</p>
+				<div style="clear:both;"></div>
+				
+				<ul class="build">
+					<li>more machines → more performance</li>
+					<li>more CPUs → more computing power</li>
+					<li>more storage → higher capacity </li>
+				</ul>
+			</article>			
+						
+			<article class="">
+				<h3>Distributed Systems – Why?</h3>
+				<h4>Non-functional Features</h4>
+				<ul>
+					<li>fault-tolerant</li>
+					<li>highly available</li>
+					<li>scalable</li>
+					<li>performant</li>
+				</ul>
+				<h4>Openness</h4>
+				<ul>
+					<li>connect new machines to the system</li>
+					<li>access the system remotely through public interfaces</li>
+				</ul>
+			</article>
+			
+									
+			<article class="">
+				<h3>Distributed Systems – Building Blocks (1)</h3>
+				<dl class="#build">
+					<dt class="med-color">A program</dt>
+					<dd>is the code you write. </dd>
+					
+					<dt class="med-color">A process</dt>
+					<dd>is what you get when you run a <span class="med-color">program</span>.</dd>
+					
+					<dt class="med-color">A message</dt>
+					<dd>is used to communicate between <span class="med-color">processes</span>.</dd>
+					
+					<dt class="med-color">A packet</dt>
+					<dd>is a fragment of a <span class="med-color">message</span> that might travel on a wire.</dd>
+					
+					<dt class="med-color">A protocol</dt>
+					<dd>is a formal description of <span class="med-color">message</span> formats and the rules that two <span class="med-color">processes</span> must follow in order to exchange those <span class="med-color">messages</span>.</dd>
+					
+				</dl>
+				<div class='source'>Source: <a href="http://code.google.com/intl/de/edu/parallel/dsd-tutorial.html">Introduction to Distributed System Design (Google Code University)</a></div>				
+			</article>
+							
+			<article class="">
+				<h3>Distributed Systems – Building Blocks (2)</h3>
+				<dl class="#build">
+					<dt class="med-color">A network</dt>
+					<dd>is the infrastructure that connects different machines via communication links. </dd>
+					
+					<dt class="med-color">A component</dt>
+					<dd>can be a process or any piece of hardware required to run a  <span class="med-color">process</span>, support communications between  <span class="med-color">processes</span>, store data, etc.</dd>					
+					<dt class="med-color">A distributed system</dt>
+					<dd>is an application that executes a collection of <span class="med-color">protocols</span> to coordinate the actions of multiple <span class="med-color">processes</span> on a <span class="med-color">network</span>, such that all <span class="med-color">components</span> cooperate together to perform a single or small set of related tasks.</dd>
+				</dl>
+				<div class='source'>Source: <a href="http://code.google.com/intl/de/edu/parallel/dsd-tutorial.html">Introduction to Distributed System Design (Google Code University)</a></div>				
+			</article>
+			
+			<article class="fill">
+				<h1>So easy! Really?</h1>
+			</article>
+			
+			<article>
+				<h3>Fallacies of Distributed Computing</h3>
+				<ol class="#build">
+					<li>The network is reliable.</li>
+					<li>Latency is zero.</li>
+					<li>Bandwidth is infinite.</li>
+					<li>The network is secure.</li>
+					<li>Topology doesn't change.</li>
+					<li>There is one administrator.</li>
+					<li>Transport cost is zero.</li>
+					<li>The network is homogeneous.</li>
+				</ol>	
+				<div class='source'>Source: <a href="http://blogs.oracle.com/jag/resource/Fallacies.html">http://blogs.oracle.com/jag/resource/Fallacies.html</a></div>				
+			</article>			
+			
+			
+			<article class="">
+				<h3>Distributed systems you might have used already…</h3>
+				
+				<table>
+					<tr>
+						<th rowspan="2">Networks</th>
+						<td>Internet</td>
+						</tr>
+					<tr>
+						<td>LAN</td>
+					</tr>
+					
+					<tr>
+						<th rowspan="2">Client/Server Applications*</th>
+						<td>World Wide Web</td>
+						</tr>
+					<tr>
+						<td>SMTP &amp; IMAP/POP3</td>
+					</tr>
+					
+					<tr>
+						<th rowspan="2">P2P Applications*</th>
+						<td>Bit Torrent</td>
+					</tr>
+					<tr>
+						<td>Skype</td>
+					</tr>
+				</table>
+				<p style="font-size:.8em; font-style:italic" class="accent-color">(*): Applications are a set of components and protocols in this context.</p>
+				
+			</article>	
+			
+												
+			<article class="">
+				<h3>Programming Distributed Applications</h3>
+				<dl>
+					<dt class="med-color">local application</dt>
+					<dd>runs on a single machine (your computer)</dd>
+					
+					<dt class="med-color">distributed application</dt>
+					<dd>runs on multiple machines, communicates</dd>
+				</dl>
+				<p>We need a way to incorporate <span class="in-color">communication and coordination</span> into our code.</p>
+			</article>						
+																	
+			<article class="fill">
+				<h1>Why not use TCP or UDP sockets directly?</h1>
+			</article>	
+			
+			<article class="">
+				<h3>Echo Server in Java</h3>
+				<section>		
+<pre>public class EchoServer
+{
+  public static void main(String[] args) throws IOException
+  {
+    ServerSocket serverSocket = new ServerSocket(4711);
+    Socket socket = null;
+    while ((socket = serverSocket.accept()) != null)
+    {
+      int b;
+      while ((b = socket.getInputStream().read()) != -1)
+      {
+        socket.getOutputStream().write((byte) b);
+      }
+    }
+  }
+}</pre>
+				</section>
+			</article>											
+			
+			<article class="">
+				<h3>Echo Client in Java</h3>
+				<section>		
+<pre>public class EchoClient
+{
+  public static void main(String[] args) throws IOException
+  {
+    Socket socket = new Socket("localhost",4711);
+    socket.getOutputStream().write("Hello World".getBytes());
+    InputStream is = socket.getInputStream();
+    InputStreamReader i = new InputStreamReader(is);
+    BufferedReader r = new BufferedReader(i);
+    String l;
+    while( (l = r.readLine()) != null){
+      System.out.println(l); 
+    }
+  }
+}</pre>
+				</section>
+			</article>
+			
+			<article class="">
+				<h3>Why not use TCP or UDP sockets directly?</h3>
+				<p>Because it is a very bad idea most of the time. By not using existing application-layer protocols, you lose:
+				<ul>
+					<li>abstraction</li>
+					<li>knowledge and experience</li>
+					<li>reusability</li>
+					<li>interoperability</li>
+					<li>etc.</li>
+				</ul>
+				</p>
+			</article>														
+															
+			<article class="">
+				<h3>Don't reinvent the wheel!</h3>
+				<p>Dedicated  <span class="mawi-color">middleware systems</span> are available to provide these features as an abstraction layer, such as</p>
+
+				<ul>
+					<li>message queues</li>
+					<li>remote procedure calls</li>
+					<li>remote method invocations</li>
+					<li>web services</li>
+				</ul>
+			</article>	
+			
+															
+			<article class="">
+				<h3>Message-oriented Middleware</h3>
+				<ul>
+					<li>message queues</li>
+					<li>messaging between processes</li>
+					<li>often asynchronous and non-blocking</li>
+					<li>various messaging patterns</li>
+				</ul>
+				<h4>Examples</h4>
+				<p>JMS, AMQP, ØMQ, etc.</p>
+			</article>									
+															
+			<article class="">
+				<h3>Message Queue Example: ØMQ + node.js</h3>
+				<section>		
+<pre>var zmq = require('zeromq')
+
+var zmqSocket = zmq.createSocket('req')
+
+//Callback for receiving messages
+zmqSocket.on("message", function(msg) {
+	console.log("Received msg:" + msg);
+});
+
+//connect to message queue
+zmqSocket.connect("tcp://localhost:5555");
+
+//Sending messages
+zmqSocket.send("Hello");</pre>
+				</section>
+				<div  class='source'>More about ØMQ: <a href="http://www.zeromq.org/">zeromq.org</a></div>				
+			</article>
+			
+			<article class="">
+				<h3>Message Queue Example: Message Flow</h3>							
+			</article>
+															
+			<article class="">
+				<h3>Remote Procedure Calls &amp; Distributed Objects</h3>
+				<ul>
+					<li>make remote calls look like local calls</li>
+					<li>access/location transparency</li>
+					<li>RPC: procedure calls</li>
+					<li>RMI: method calls + distributable objects</li>
+					<li>generic interface definitions, language-specific implementations</li>
+					<li>often blocking and synchronous, just like local calls</li>
+				</ul>
+				<h4>Examples</h4>
+				<p>Sun RPC, CORBA, Java RMI, Apache thrift, etc.</p>
+			</article>
+			
+			<article class="smaller">
+				<h3>RMI Example: Remote Adder with Java RMI</h3>
+				<section>		
+<pre>public interface Adder extends Remote
+{
+    public int add(int a, int b) throws RemoteException;
+}</pre>
+				</section>
+				<section>		
+<pre>public class RemoteAdderImpl extends UnicastRemoteObject implements Adder
+{
+    protected RemoteAdderImpl() throws RemoteException
+    {
+        super();
+    }
+
+    @Override
+    public int add(int a, int b) throws RemoteException
+    {
+        return (a+b);
+    }
+}</pre>
+				</section>				
+			</article>	
+					
+			<article class="">
+				<h3>RMI Example: Remote Adder with Java RMI</h3>
+				<p>Create and register object (JVM A):</p>
+				<section>		
+<pre>Naming.bind("rmi://localhost/adder", new RemoteAdderImpl() );</pre>
+				</section>
+
+				<p>Access remote object (JVM B):</p>
+				<section>		
+<pre>Adder adder = (Adder) Naming.lookup("rmi://localhost/adder");
+int result = adder.add(1,1);
+</pre>
+				</section>
+				<p><code>adder.add(1,1)</code> looks like a regular statement thanks to RMI.</p>				
+				<p>Note that both JVMs can be hosted on different machines.</p>
+			</article>	
+			
+			<article class="">
+				<h3>RMI Example: Flow</h3>							
+			</article>
+																		
+			<article class="">
+				<h3>"Web Services"</h3>
+				<q style="font-size:120%; line-height:165%">The idea of message systems is really cool, but they can't traverse our corporate firewalls!<br/> Why not use HTTP for messaging?! Port 80 is already open! I like XML.</q>					
+						<div class='author'>Anonymous CTO</div>
+			</article>																			
+			<article class="">
+				<h3>"Web Services"</h3>
+				<ul>
+					<li>protocol stack: SOAP, WSDL, (UDDI)</li>
+					<li>provide features similar to RPC and messaging</li>
+					<li>XML-serialized messages</li>
+					<li>code generators for various languages (serialization/deserialization of SOAP messages <=> language constructs)</li>
+					<li>use various application-layer protocols for transport (i.e. <span class="nawi-color">HTTP</span>, SMTP,…)</li>
+				</ul>
+			</article>			
+			
+			<article class="fill">
+				<q style="font-size:120%; line-height:165%">SOAP. Simple Object Access Protocol. Except it's not Simple, it's Complicated. And it's not about Objects, it's about RPC. So, really: CRAP</q>					
+						<div class='author'><a href="https://twitter.com/#!/joewalnes/status/146598054915612673">@joewalnes</a></div>
+			</article>	
+			
+			<article class="">
+				<h3>"Web Services"</h3>
+				<ul>
+					<li>popular industry/enterprise technologies</li>
+					<li>appropriate for several use cases</li>
+					<li>very complex, tons of standards (WS-*)</li>
+					<li>have almost nothing to do with the actual web!</li>
+				</ul>
+				<p>Using the <span class="mawi-color">Hypertext Transfer Protocol</span> as a low-level, interchangable <span class="nawi-color">transport protocol</span> for XML-encoded messages is not the same as "web".</p>
+			</article>
+			
+			<article class="fill">	
+				<h1>The Challenge</h1>
+				<p style="font-size:120%; line-height:165%">Can we build distributed applications using the web like it is supposed to, embracing its ideas and concepts?</p>			
+			<article>																				
+		</section>
+
+		<section>
+			<header>HTTP Refresher</header>
+
+			<article class="fill">
+				<h1>The World Wide Web</h1>
+			</article>
+
+			<article class="fill">
+				<h1>HTTP</h1>
+				<h3>Hypertext Transfer Protocol</h3>
+			</article>
+			
+			<article class="fill">
+				<q style="font-size:120%; line-height:165%">The Hypertext Transfer Protocol (HTTP) is an application-level protocol for distributed, collaborative, hypermedia information systems. It is a generic, stateless, protocol[…].</q>					
+						<div class='author'><a href="http://tools.ietf.org/html/rfc2616">RFC 2616</a></div>
+			</article>																				
+
+			<article class="fill">
+				<h1>REST</h1>
+				<h3>Representational State Transfer</h3>
+				
+			</article>
+
+			<article class="">
+				<h3>HTTP Verbs</h3>				
+				
+				<table>
+					<tr>
+						<th width="25%"></th>
+						<th width="25%">safe</th>
+						<th width="25%">idempotent</th>
+						<th width="25%">cachable</th>
+					</tr>
+					<tr>
+						<th style="font-family:monospace; font-weight:bold">HEAD</td>
+						<td>&#10003;</td>
+						<td>&#10003;</td>
+						<td>(&#10003;)</td>
+					</tr>
+					<tr>
+						<th style="font-family:monospace; font-weight:bold">GET</td>
+						<td>&#10003;</td>
+						<td>&#10003;</td>
+						<td>(&#10003;)</td>
+					</tr>
+					<tr>
+						<th style="font-family:monospace; font-weight:bold">PUT</td>
+						<td></td>
+						<td>&#10003;</td>
+						<td></td>
+					</tr>
+					<tr>
+						<th style="font-family:monospace; font-weight:bold">DELETE</td>
+						<td></td>
+						<td>&#10003;</td>
+						<td></td>
+					</tr>
+					<tr>
+						<th style="font-family:monospace; font-weight:bold">POST</td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+				</table>
+			</article>
+		</section>
+
 		
+		<section>
+		
+			<article class="">
+				<h3>License</h3>
+				<p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.</p>
+				<p>Title <a href="http://www.flickr.com/photos/bitzcelt/916823243">image</a> by <a href="http://www.flickr.com/photos/bitzcelt/">bitzcelt</a>, cc-by-nc-nd 2.0.</p>
+				<p>Icon set by <a href="http://www.picol.org">picol</a>, cc-by-sa 3.0.</p>
+
+			</article>	
+					
 			<article>
 				<h3>Contents</h3>
 				<nav class="toc" />
