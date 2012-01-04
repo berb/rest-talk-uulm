@@ -409,7 +409,7 @@ int result = adder.add(1,1);
 			
 			<article class="">
 				<h3>RMI Example: Call Flow</h3>							
-				<img class="centered" style="" src="assets/illu/rmi.svg">
+				<img class="centered" style="width:100%" src="assets/illu/rmi.svg">
 			</article>
 																		
 			<article class="">
@@ -475,11 +475,47 @@ int result = adder.add(1,1);
 			</article>
 			
 			<article class="fill">
-				<q style="font-size:120%; line-height:165%">The Hypertext Transfer Protocol (HTTP) is an application-level protocol for distributed, collaborative, hypermedia information systems. It is a generic, stateless, protocol[…].</q>					
+				<q style="font-size:120%; line-height:165%">The Hypertext Transfer Protocol (HTTP) is an <span class="med-color">application-level protocol</span> for <span class="mawi-color">distributed, collaborative, hypermedia information systems</span>. It is a <span class="med-color">generic, stateless</span>, protocol[…].</q>					
 						<div class='author'><a href="http://tools.ietf.org/html/rfc2616">RFC 2616</a></div>
-			</article>																				
+			</article>
 
+			<article class="">
+				<h3>Hypertext Transfer Protocol</h3>
+				<ul>
+					<li>request/response</li>
+					<li>client/server</li>
+					<li>stateless</li>
+					<li>resource-oriented</li>
+					<li>on top of <code>TCP/IP</code></li>
+				</ul>
+			</article>
+			
+			<article class="">
+				<h3>Hypertext Transfer Protocol: Request/Response</h3>
+				
+<section class="build"><pre>GET /foo HTTP/1.1
+Host: erb.io
+ 
+</pre></section>
+ <section class="build"><pre>
+HTTP/1.1 200 OK
+Date: Wed, 04 Jan 2012 17:01:59 GMT
+Server: myserver/0.0.7
+Last-Modified: Wed, 25 Nov 2011 12:13:15 GMT
+Etag: "3ab23c-21f-12058638"
+Content-Length: 11
+Connection: close
+Content-Type: text/plain; charset=UTF-8
 
+hello world</pre></section>
+ 			</article>
+ 			
+			<article class="">
+				<h3>HTTP: Clients, Caches, (Reverse) Proxies, Servers</h3>
+				<img class="centered" style="width:100%" src="assets/illu/client_server_cache.svg">
+ 			</article>
+			
+			
 			<article class="">
 				<h3>HTTP Verbs</h3>				
 				
@@ -525,13 +561,23 @@ int result = adder.add(1,1);
 		</section>
 
 		<section>
-			<header>REST</header>		
+			<header>Representational State Transfer</header>		
 		
 		
 			<article class="fill">
 				<h1>REST</h1>
 				<h3>Representational State Transfer</h3>
 				
+			</article>
+			
+			<article class="">
+				<h3>REST Triangle</h3>							
+				<img class="centered" style="width:80%" src="assets/illu/rest_triangle.svg">
+			</article>
+			
+			<article class="">
+				<h3>State Transfer</h3>							
+				<img class="centered" style="width:80%" src="assets/illu/rest.svg">
 			</article>
 
 		</section>

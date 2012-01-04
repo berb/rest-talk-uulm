@@ -13,8 +13,8 @@
    height="600px"
    id="svg6229"
    version="1.1"
-   inkscape:version="0.48.0 r9654"
-   sodipodi:docname="Neues Dokument 18">
+   inkscape:version="0.48.2 r9819"
+   sodipodi:docname="rest_triangle.svg">
   <defs
      id="defs6231" />
   <sodipodi:namedview
@@ -30,10 +30,10 @@
      inkscape:current-layer="layer1"
      inkscape:document-units="px"
      showgrid="false"
-     inkscape:window-width="1280"
-     inkscape:window-height="950"
-     inkscape:window-x="0"
-     inkscape:window-y="24"
+     inkscape:window-width="1366"
+     inkscape:window-height="684"
+     inkscape:window-x="1920"
+     inkscape:window-y="766"
      inkscape:window-maximized="1" />
   <metadata
      id="metadata6234">
@@ -56,23 +56,21 @@
        transform="matrix(10.408514,-1.2148126,1.2148126,10.408514,217.3601,156.90077)">
       <g
          id="background">
-	<rect
-   id="rect6241"
-   height="32"
-   width="32"
-   x="0"
-   y="0"
-   style="fill:none" />
-
-</g>
+        <rect
+           id="rect6241"
+           height="32"
+           width="32"
+           x="0"
+           y="0"
+           style="fill:none" />
+      </g>
       <g
          id="rdf">
-	<path
-   id="path6244"
-   d="M 26.997,20.09 V 11.91 C 29.834,11.435 32,8.973 32,6 32,2.687 29.312,0 26,0 c -3.316,0 -6,2.687 -6,6 0,0.609 0.092,1.196 0.261,1.75 l -9.423,4.711 C 9.747,10.972 7.989,10 6,10 c -3.314,0 -6,2.687 -6,6 0,3.312 2.686,6 6,6 1.99,0 3.748,-0.973 4.839,-2.464 l 9.423,4.712 C 20.092,24.803 20,25.391 20,26 c 0,3.312 2.684,6 6,6 3.312,0 6,-2.688 6,-6 0,-2.972 -2.166,-5.435 -5.003,-5.91 z M 11.739,17.751 C 11.908,17.197 12,16.609 12,16 12,15.39 11.908,14.801 11.738,14.247 l 9.422,-4.71 c 0.903,1.235 2.266,2.109 3.839,2.374 v 8.18 c -1.573,0.265 -2.934,1.139 -3.838,2.372 l -9.422,-4.712 z"
-   inkscape:connector-curvature="0" />
-
-</g>
+        <path
+           id="path6244"
+           d="M 26.997,20.09 V 11.91 C 29.834,11.435 32,8.973 32,6 32,2.687 29.312,0 26,0 c -3.316,0 -6,2.687 -6,6 0,0.609 0.092,1.196 0.261,1.75 l -9.423,4.711 C 9.747,10.972 7.989,10 6,10 c -3.314,0 -6,2.687 -6,6 0,3.312 2.686,6 6,6 1.99,0 3.748,-0.973 4.839,-2.464 l 9.423,4.712 C 20.092,24.803 20,25.391 20,26 c 0,3.312 2.684,6 6,6 3.312,0 6,-2.688 6,-6 0,-2.972 -2.166,-5.435 -5.003,-5.91 z M 11.739,17.751 C 11.908,17.197 12,16.609 12,16 12,15.39 11.908,14.801 11.738,14.247 l 9.422,-4.71 c 0.903,1.235 2.266,2.109 3.839,2.374 v 8.18 c -1.573,0.265 -2.934,1.139 -3.838,2.372 l -9.422,-4.712 z"
+           inkscape:connector-curvature="0" />
+      </g>
     </g>
     <text
        xml:space="preserve"
