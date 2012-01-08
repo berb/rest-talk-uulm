@@ -185,3 +185,37 @@
 a{
 	text-decoration: none;
 }
+
+
+
+.bg-uulm-color {
+  background-color: rgba(125,154,170,0.25);
+}
+
+.bg-mawi-color {
+  background-color: rgba(86,170,28,0.25);
+}
+
+.bg-in-color {
+  background-color: rgba(163,38,56,0.25);
+}
+
+.bg-nawi-color {
+  background-color: rgba(189,96,5,0.25);
+}
+
+.bg-med-color {
+  background-color: rgba(38,84,124,0.25);
+}
+
+.bg-accent-color {
+  background-color: rgba(169,162,141,0.25);
+}
+
+.box {
+  border-radius: 10px;
+  padding:5px;
+
+}
+
+
