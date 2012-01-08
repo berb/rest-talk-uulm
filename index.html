@@ -467,7 +467,34 @@ int result = adder.add(1,1);
 
 			<article class="fill">
 				<h1>The World Wide Web</h1>
+				<h3>URI + HTTP (+ HTML)</h3>
 			</article>
+			
+			<article class="fill">
+				<h1>URI</h1>
+				<h3>Uniform Resource Identifier</h3>
+			</article>			
+
+			<article class="">
+				<h3>Uniform Resource Identifier: Structure</h3>
+				
+ <section><pre> http://thehost.tld:8080/path/to/it?name=value#foo
+ \__/   \______________/\_________/ \________/ \_/
+   |           |            |            |      |
+scheme     authority       path        query  fragment</pre></section>
+ 			</article>
+ 			
+			<article class="">
+				<h3>Uniform Resource Identifier</h3>
+				<ul>
+					<li>naming</li>
+					<li>addressing</li>
+					<li>identifying</li>
+				</ul>
+				<div class="build">
+				<p><br/>Also, <a href="http://www.w3.org/Provider/Style/URI">cool URIs don't change</a>!</p>
+				</div>
+			</article>			
 
 			<article class="fill">
 				<h1>HTTP</h1>
@@ -488,7 +515,12 @@ int result = adder.add(1,1);
 					<li>resource-oriented</li>
 					<li>on top of <code>TCP/IP</code></li>
 				</ul>
-			</article>
+			</article>			
+ 			
+			<article class="">
+				<h3>HTTP: Clients, (Caching/Reverse) Proxies, Servers</h3>
+				<img class="centered" style="width:100%" src="assets/illu/client_server_cache.svg">
+ 			</article>			
 			
 			<article class="">
 				<h3>Hypertext Transfer Protocol: Request/Response</h3>
@@ -509,10 +541,10 @@ Content-Type: text/plain; charset=UTF-8
 
 hello world</pre></section>
  			</article>
- 			
+
+ 			 			
 			<article class="">
-				<h3>HTTP: Clients, Caches, (Reverse) Proxies, Servers</h3>
-				<img class="centered" style="width:100%" src="assets/illu/client_server_cache.svg">
+				<h3>Advanced HTTP Features: Conditional Requests</h3>
  			</article>
 			
 			
@@ -558,16 +590,68 @@ hello world</pre></section>
 					</tr>
 				</table>
 			</article>
+
+ 			
 		</section>
 
+  
 		<section>
 			<header>Representational State Transfer</header>		
-		
 		
 			<article class="fill">
 				<h1>REST</h1>
 				<h3>Representational State Transfer</h3>
+			</article>
+			
+			
+			<article>
+				<h3>Architectural Constraints</h3>
+				<ol class="#build">
+					<li>client-server</li>
+					<li>stateless</li>
+					<li>uniform interface</li>
+					<li class="">cacheable</li>
+					<li class="">layered system</li>
+					<li class="accent-color">code on demand</li>
+				</ol>	
+				<div class='source'>Source: <a href="http://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm#sec_5_1">http://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm#sec_5_1</a></div>				
+			</article>
+			
+			
+			<article class="">
+				<h3>Data Operations</h3>				
 				
+				<table>
+					<tr>
+						<th width="30%">Operation</th>
+						<th width="35%">in SQL</th>
+						<th width="35%">in HTTP</th>
+					</tr>
+					<tr>
+						<td>Create</td>
+						<td style="font-family:monospace">INSERT</td>
+						<td style="font-family:monospace">POST / PUT</td>
+					</tr>
+					<tr>
+						<td>Read</td>
+						<td style="font-family:monospace">SELECT</td>
+						<td style="font-family:monospace">GET / HEAD</td>
+					</tr>
+					<tr>
+						<td>Update</td>
+						<td style="font-family:monospace">UPDATE</td>
+						<td style="font-family:monospace">PUT / POST</td>
+					</tr>
+					<tr>
+						<td>Delete</td>
+						<td style="font-family:monospace">DELETE</td>
+						<td style="font-family:monospace">DELETE</td>
+					</tr>
+				</table>
+				
+				<div class="build">
+				<p style="margin-top:30px;" class="box bg-nawi-color"><strong>Please note:</strong> The comparison may be flawed on closer consideration. SQL is about manipulating data sets. REST is about transforming application state changes via hypermedia, HTTP and URIs.</p>
+				</div>
 			</article>
 			
 			<article class="">
@@ -582,6 +666,37 @@ hello world</pre></section>
 
 		</section>
 		
+
+		<section>
+			<header>REST in Practice</header>
+			
+			<article class="fill">
+				<h1>REST</h1>
+				<h3>in Practice</h3>
+			</article>
+			
+			<article class="fill">
+				<q style="font-size:150%; line-height:175%">REST is so trendy, let's rebrand our old HTTP API and call it <em>RESTful</em> from now on!</q>
+				<div class='author'>Hipster CTO</div>
+			</article>
+			
+			
+			
+			
+			
+			<article class="">
+				<h3>Advanced Topics and Challenges</h3>
+				<ul>
+					<li>API versioning</li>
+					<li>representation versioning</li>
+					<li>authentication and security in RESTful APIs</li>
+					<li>design of hypermedia-enabled representations</li>
+					<li>etc.</li>
+				</ul>
+			</article>
+				
+		</section>
+		
 		<section>
 		
 			<header>Conclusion</header>	
@@ -589,6 +704,19 @@ hello world</pre></section>
 			<article>
 				<h3>Recap</h3>
 				<ul class="build">
+					<li>HTTP can be used for building distributed services</li>
+					<li>SOAP (and others) disregard principles of the web</li>
+					<li>REST is an architectural style that embraces the web</li>
+				</ul>
+			</article>
+						
+			<article>
+				<h3>Recap: REST</h3>
+				<ul class="build">
+					<li>resources identified by URIs</li>
+					<li>(hypermedia) representations of resources</li>
+					<li>set of verbs as uniform interface on all resources</li>
+					<li>hypermedia as the engine of application state</li>
 				</ul>
 			</article>
 			
@@ -642,6 +770,29 @@ hello world</pre></section>
 				 <div style="clear:both;" />
 				 </p>
 			</article>
+			
+			<article class="smaller">
+				<h3>Reading Recommendations – Blog Posts &amp; Sites </h3>
+				<ul>
+					<li><a href="http://www.infoq.com/articles/rest-introduction">A Brief Introduction to REST</a> (infoq.com)</li>
+					<li><a href="http://tomayko.com/writings/rest-to-my-wife">How I Explained REST to My Wife</a> (tomayko.com)</li>
+					<li><a href="http://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven">REST APIs must be hypertext-driven</a> (roy.gbiv.com)</li>
+					<li><a href="http://nordsc.com/ext/classification_of_http_based_apis.html">Classification of HTTP-based APIs</a> (nordsc.com)</li>
+					<li><a href="http://martinfowler.com/articles/richardsonMaturityModel.html">Richardson Maturity Model</a> (martinfowler.com)</li>
+					<li><a href="http://www.innoq.com/blog/st/2010/07/rest_litmus_test_for_web_frame.html">REST Litmus Test for Web Frameworks</a> (innoq.com)</li>
+					<li><a href="http://www.infoq.com/articles/rest-anti-patterns">REST Anti-Patterns</a> (infoq.com)</li>
+				</ul>
+			</article>	
+						
+			<article class="smaller">
+				<h3>Talk Recommendations</h3>
+				<ul>
+					<li><a href="http://www.infoq.com/presentations/qcon-tilkov-rest-intro">REST: A Pragmatic Introduction to the Web's Architecture</a> (Stefan Tilkov)</li>
+					<li><a href="http://vimeo.com/30764565">Everything You Know About REST Is Wrong</a> (Steve Klabnik)</li>
+					<li><a href="http://vimeo.com/20781278">Hypermedia APIs</a> (Jon Moore)</li>
+					<li><a href="http://vimeo.com/28761654">HATEOAS - The Confusing Bit from REST</a> (Jim Webber)</li>
+				</ul>
+			</article>			
 			
 			<article class="fill">
 				<h1>Thank you!</h1>
