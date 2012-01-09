@@ -468,6 +468,7 @@ int result = adder.add(1,1);
 			<article class="fill">
 				<h1>The World Wide Web</h1>
 				<h3>URI + HTTP (+ HTML)</h3>
+				<h3><span class="accent-color">A Little Refresher</span></h3>
 			</article>
 			
 			<article class="fill">
@@ -544,12 +545,7 @@ hello world</pre></section>
 
  			 			
 			<article class="">
-				<h3>Advanced HTTP Features: Conditional Requests</h3>
- 			</article>
-			
-			
-			<article class="">
-				<h3>HTTP Verbs</h3>				
+				<h3>HTTP Request Methods</h3>				
 				
 				<table>
 					<tr>
@@ -590,8 +586,157 @@ hello world</pre></section>
 					</tr>
 				</table>
 			</article>
+			
+			<article class="smaller">
+				<h3>HTTP Response Status Codes</h3>				
+				<p>(very incomplete list, only some exampless)</p>
+				<table>
+					<tr>
+						<th  rowspan="1" width="15%">1xx</th>
+						<th  rowspan="1" width="35%">informational</th>
+						<td width="15%">100</td>
+						<td width="35%">Continue</td>
+					</tr>
+					<tr>
+						<th  rowspan="1">2xx</th>
+						<th  rowspan="1"">sucess</th>
+						<td>200</td>
+						<td>Ok</td>
+					</tr>
+					<tr>
+						<th rowspan="2">3xx</th>
+						<th rowspan="2">redirection</th>
+						<td>300</td>
+						<td>Multiple Choices</td>
+					</tr>
+					<tr>
+						<td>301</td>
+						<td>Moved Permanently</td>
+					</tr>
+					<tr>
+						<th rowspan="3">4xx</th>
+						<th rowspan="3">client error</th>
+						<td>400</td>
+						<td>Bad Request</td>
+					</tr>
+					<tr>
+						<td>404</td>
+						<td>Not Found</td>
+					</tr>
+					<tr>
+						<td>409</td>
+						<td>Conflict</td>
+					</tr>
+					<tr>
+						<th>5xx</th>
+						<th>server error</th>
+						<td>500</td>
+						<td>Internal Server Error</td>
+					</tr>
 
- 			
+				</table>
+			</article>		
+			
+			<article class="">
+				<h3>Some Advanced HTTP Features</h3>
+				<ul>
+					<li>conditional requests</li>
+					<li>content negotiation</li>
+					<li>caching</li>
+					<li>partial requests</li>
+					<li>persistent connections</li>
+					<li>request pipelining</li>
+					<li>chunked encoding</li>
+				</ul>
+			</article>			
+
+			<article class="smaller">
+				<h3>HTTP: Conditional Requests (1)</h3>
+				
+<section class="build"><pre>GET /foo HTTP/1.1
+If-Modified-Since: Wed, 18 Nov 2011 19:21:45 GMT
+Host: erb.io
+ 
+</pre></section>
+ <section class="build"><pre>
+HTTP/1.1 200 OK
+Date: Wed, 04 Jan 2012 17:01:59 GMT
+Server: myserver/0.0.7
+Last-Modified: Wed, 25 Nov 2011 12:13:15 GMT
+Etag: "3ab23c-21f-12058638"
+Content-Length: 11
+Connection: close
+Content-Type: text/plain; charset=UTF-8
+
+hello world</pre>
+<p class="box bg-nawi-color">Resource has been changed (here: <code>Last-Modified</code> mismatch).</p>
+</section>
+ 			</article>
+			
+			<article class="smaller">
+				<h3>HTTP: Conditional Requests (2)</h3>
+				
+<section class="build"><pre>GET /foo HTTP/1.1
+Host: erb.io
+If-None-Match: "103-4585efb972780;49711a471c400"
+ 
+</pre></section>
+ <section class="build"><pre>
+HTTP/1.1 304 OK
+Date: Wed, 04 Jan 2012 17:06:01 GMT
+Server: myserver/0.0.7
+Etag: "103-4585efb972780;49711a471c400"
+Connection: close</pre>
+<p class="box bg-mawi-color">Resource has not yet changed (here: <code>ETag</code> match).</p>
+</section>				
+ 			</article>
+			
+			<article class="smaller">
+				<h3>HTTP: Content Negotiation (1)</h3>
+<section class="build"><pre>GET /foo HTTP/1.1
+Accept: text/plain, text/html
+Accept-Language: de; q=1.0, en; q=0.5
+Host: erb.io
+ 
+</pre></section>
+ <section class="build"><pre>
+HTTP/1.1 200 OK
+Date: Wed, 04 Jan 2012 17:01:59 GMT
+Server: myserver/0.0.7
+Etag: "3ab23c-21f-12058638"
+Content-Length: 10
+Connection: close
+Content-Type: text/plain; charset=UTF-8
+Content-Language: de
+
+hallo welt</pre>
+<p class="box bg-mawi-color">Server returns german text representation, as requested.</p>
+</section>				
+ 			</article>
+			
+			<article class="smaller">
+				<h3>HTTP: Content Negotiation (2)</h3>
+<section class="build"><pre>GET /foo HTTP/1.1
+Accept: application/msexcel
+Accept-Language: it
+Host: erb.io
+ 
+</pre></section>
+ <section class="build"><pre>
+HTTP/1.1 406 Not Acceptable
+Date: Wed, 04 Jan 2012 18:21:15 GMT
+Server: myserver/0.0.7
+Content-Length: 22
+Connection: close
+Content-Type: text/plain; charset=UTF-8
+Content-Language: en
+
+Sorry, can't do that!</pre>
+<p class="box bg-nawi-color">Content negotiation failed, server can't fulfil the request.</p>
+</section>				
+ 			</article>
+			
+			 			
 		</section>
 
   
