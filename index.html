@@ -125,11 +125,13 @@
 					<li>scalable</li>
 					<li>performant</li>
 				</ul>
+<!--
 				<h4>Openness</h4>
 				<ul>
 					<li>connect new machines to the system</li>
 					<li>access the system remotely through public interfaces</li>
 				</ul>
+-->
 			</article>
 			
 									
@@ -752,15 +754,42 @@ Sorry, can't do that!</pre>
 			 			
 			<article>
 				<h3>Hypermedia: Links</h3>
-				<section class="build">
-				<pre>&lt;/article&gt;</pre></section>
-
+<section class="build"><pre>&lt;a href=&quot;/foo#bar&quot;&gt;Over there!&lt;/a&gt;</pre></section>
+<section class="build"><pre>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;mystyle.css&quot; /&gt;</pre></section>
+<section class="build"><pre>&lt;a rel=&quot;next&quot; href=&quot;http://example.org/entries/3&quot;&gt;next item&lt;/a&gt;</pre></section>
+<section class="build"><pre>&lt;a rel=&quot;crush&quot; href=&quot;http://social.net/hot-person&quot;&gt;Hot!&lt;/a&gt;</pre></section>
 			</article> 			
 						
 			<article>
+				<h3>Hypermedia: Link Relations</h3>
+				<p>Semantic description of link relations.</p>
+				<ul>
+					<li><a href="http://www.iana.org/assignments/link-relations/link-relations.xml">IANA Link Relations</a></li>
+					<li><a href="http://microformats.org/wiki/existing-rel-values">HTML rel values</a></li>
+				</ul>
+			</article> 			
+						
+			<article class="smaller">
 				<h3>Hypermedia: Forms</h3>
 				<section class="build">
-				<pre>&lt;/article&gt;</pre></section>
+				<pre>&lt;form action=&quot;http://example.org/users&quot; method=&quot;post&quot;&gt;
+  &lt;input name=&quot;name&quot; type=&quot;text&quot; value=&quot;&quot; /&gt;
+  &lt;input name=&quot;login&quot; type=&quot;text&quot; value=&quot;&quot; /&gt;
+  &lt;input type=&quot;submit&quot; /&gt;
+&lt;/form&gt;	</pre></section>
+				
+ <section class="build"><pre>POST /users HTTP/1.1
+Host: example.org
+User-Agent: Mozilla/5.0 (Ubuntu; X11; Linux x86_64; rv:9.0.1) Gecko/20100101 Firefox/9.0.1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: de-de,de;q=0.8,en-us;q=0.5,en;q=0.3
+Accept-Encoding: gzip, deflate
+Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7
+Connection: keep-alive
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 28
+
+name=Benjamin+Erb&login=b_erb</pre></section>				
 
 			</article> 			
 			
@@ -769,11 +798,16 @@ Sorry, can't do that!</pre>
 
   
 		<section>
-			<header>Representational State Transfer</header>		
+			<header>Architectural Style: Representational State Transfer</header>		
 		
 			<article class="fill">
 				<h1>REST</h1>
 				<h3>Representational State Transfer</h3>
+			</article>
+					
+			<article class="fill">
+				<h1>REST</h1>
+				<h3>Introducing the Architectural Style</h3>
 			</article>
 			
 			
@@ -789,6 +823,91 @@ Sorry, can't do that!</pre>
 				</ol>	
 				<div class='source'>Source: <a href="http://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm#sec_5_1">http://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm#sec_5_1</a></div>				
 			</article>
+			
+			
+			<article class="">
+				<h3>Client-Server</h3>							
+				<img class="centered" style="width:100%" src="assets/illu/cli_srv.svg">
+			</article>			
+			
+						
+			<article class="">
+				<h3>Statelessness</h3>	
+				<div class="build">						
+				<h4 class="med-color">(Web) Applications without any state?</h4>
+				<h4 class="accent-color">Almost impossible…</h4>
+				<h4 class="mawi-color">Here: Stateless communication!</h4>
+				<ul>
+					<li>server manages resource states</li>
+					<li>client manages session states</li>
+				</ul>
+				</div>
+			</article>			
+									
+			<article class="fill">
+				<h3>Statelessness</h3>	
+				<q style="font-size:120%; line-height:165%">[...]each request from client to server must contain <span class="mawi-color">all of the information necessary to understand the request</span>, and <span class="in-color">cannot take advantage of any stored context on the server</span>.</q>					
+						<div class='author'><a href="http://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm">Roy T. Fielding</a></div>
+			</article>
+			
+						
+			<article class="">
+				<h3>Statelessness: Example</h3>	
+				<p>What's the URI of the 2nd result page of search query?</p>
+				<h4>Stateful Version</h4>
+				<p>
+					<code>http://foo.bar/query?sid=61AUOh6W1TA&page=next</code>
+				</p>
+				
+				<ul class="build">
+					<li>server creates a session for each search</li>
+					<li>session contains search term and current page</li>
+					<li>"next" URI contains session ID and action (next)</li>
+					<li>the state of the search is hidden in the session state</li>
+				</ul>				
+			</article>							
+									
+			<article class="">
+				<h3>Statelessness: Example</h3>	
+				<p>What's the URI of the 2nd result page of search query?</p>
+				<h4>Stateless Version</h4>
+				<p>
+					<code>http://foo.bar/query?term=uni+ulm&start=10</code>
+				</p>
+				
+				<ul class="build">
+					<li>URI contains all information of the search state</li>
+					<li>search term 'uni ulm', skip the first 10 results</li>
+					<li>client manages search state</li>
+					<li>server answers request without looking up a session</li>
+				</ul>				
+			</article>	
+			
+			<article class="">
+				<h3>Cacheability</h3>	
+				<ul>
+					<li>improve network efficiency &amp; scalability</li>
+					<li>label cacheability of each response</li>
+				</ul>
+			</article>					
+			
+			<article class="">
+				<h3>Layered System</h3>	
+				<ul>
+					<li>hierarchical layers of components</li>
+					<li>client, servers, <strong class="">intermediaries</strong></li>
+					<li>reverse proxies, proxy caches, load-balancers, etc.</li>
+					<li>integration of legacy systems</li>
+				</ul>
+				<img class="centered" style="width:80%" src="assets/illu/layered_system.svg">
+			</article>	
+						
+			<article class="">
+				<h3>Uniform Interface</h3>	
+				<ul>
+					<li>tbd.</li>
+				</ul>
+			</article>					
 			
 			
 			<article class="">
