@@ -899,15 +899,104 @@ name=Benjamin+Erb&login=b_erb</pre></section>
 					<li>reverse proxies, proxy caches, load-balancers, etc.</li>
 					<li>integration of legacy systems</li>
 				</ul>
-				<img class="centered" style="width:80%" src="assets/illu/layered_system.svg">
+				<img class="centered" style="width:100%" src="assets/illu/layered_system.svg" />
 			</article>	
 						
 			<article class="">
-				<h3>Uniform Interface</h3>	
+				<h3>Uniform Interface: Sub-constraints</h3>	
 				<ul>
-					<li>tbd.</li>
+					<li>identification of resources</li>
+					<li>manipulation via representations</li>
+					<li>self-descriptive messages</li>
+					<li>hypermedia as the engine of application state</li>
 				</ul>
 			</article>					
+			
+			<article class="smaller">
+				<h3>Identification of Resources</h3>	
+				<ul>
+					<li>resource-oriented architecture</li>
+					<li>resources are the nouns of the application</li>
+					<li>resources are fine-grained entities</li>
+				</ul>
+				<div class="build">
+				<h4>Examples</h4>
+				<ul>
+					<li><code>http://example.com/user/4711</code></li>
+					<li><code>http://example.com/customer/23/order/1/product/0735611319</code></li>
+					<li><code>http://example.com/search?term=foo</code></li>
+					<li><code>http://example.com/blog/the-post-title/comments#latest</code></li>
+				</ul>
+				</div>
+			</article>					
+
+			<article class="">
+				<h3>Manipulation via Representations</h3>	
+				<ul>
+					<li>changes of server-side resource states</li>
+					<li>based on changes of (altered) representations</li>
+				</ul>
+			</article>	
+			
+			<article class="">
+				<h3>Manipulation via Representations</h3>	
+				<img class="centered" style="width:100%" src="assets/illu/manip_rep.svg" />
+			</article>					
+
+			<article class="">
+				<h3>Self-descriptive Messages</h3>	
+				<ul>
+					<li>messages contain representation of resources</li>
+					<li>meta-data/description of representation (header)</li>
+					<li>usage of (custom) MIME types</li>
+					<li>enough information to process without additional knowledge</li>
+				</ul>				
+			</article>					
+
+			<article class="">
+				<h3>Hypermedia as the Engine of Application State</h3>	
+				<ul>
+					<li>state changes based on hypermedia</li>
+					<li>following hyperlinks</li>
+					<li>submitting forms</li>
+					<li>accessing resources</li>
+				</ul>					
+			</article>					
+			
+			<article class="">
+				<h3>Hypermedia as the Engine of Application State</h3>	
+				<img class="centered" style="width:100%" src="assets/illu/hypermedia.svg" />
+			</article>								
+
+			<article class="">
+				<h3>Hypermedia as the Engine of Application State</h3>	
+				<img class="centered" style="width:100%" src="assets/illu/hypermedia2.svg" />
+			</article>								
+			
+			<article class="">
+				<h3>REST Triangle</h3>							
+				<img class="centered" style="width:80%" src="assets/illu/rest_triangle.svg">
+			</article>
+
+		</section>
+		
+
+		<section>
+			<header>REST in Practice</header>
+			
+			<article class="fill">
+				<h1>REST</h1>
+				<h3>in Practice</h3>
+			</article>
+			
+			<article class="fill">
+				<q style="font-size:150%; line-height:175%">REST is so trendy, let's rebrand our old HTTP API and call it <em>RESTful</em> from now on!</q>
+				<div class='author'>Hipster CTO</div>
+			</article>
+			
+			
+			
+			
 			
 			
 			<article class="">
@@ -944,37 +1033,7 @@ name=Benjamin+Erb&login=b_erb</pre></section>
 				<div class="build">
 				<p style="margin-top:30px;" class="box bg-nawi-color"><strong>Please note:</strong> The comparison may be flawed on closer consideration. SQL is about manipulating data sets. REST is about transforming application state changes via hypermedia, HTTP and URIs.</p>
 				</div>
-			</article>
-			
-			<article class="">
-				<h3>REST Triangle</h3>							
-				<img class="centered" style="width:80%" src="assets/illu/rest_triangle.svg">
-			</article>
-			
-			<article class="">
-				<h3>State Transfer</h3>							
-				<img class="centered" style="width:80%" src="assets/illu/rest.svg">
-			</article>
-
-		</section>
-		
-
-		<section>
-			<header>REST in Practice</header>
-			
-			<article class="fill">
-				<h1>REST</h1>
-				<h3>in Practice</h3>
-			</article>
-			
-			<article class="fill">
-				<q style="font-size:150%; line-height:175%">REST is so trendy, let's rebrand our old HTTP API and call it <em>RESTful</em> from now on!</q>
-				<div class='author'>Hipster CTO</div>
-			</article>
-			
-			
-			
-			
+			</article>			
 			
 			<article class="">
 				<h3>Advanced Topics and Challenges</h3>
