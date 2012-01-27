@@ -589,6 +589,42 @@ hello world</pre></section>
 				</table>
 			</article>
 			
+			<article class="">
+				<h3>Data Operations</h3>				
+				
+				<table>
+					<tr>
+						<th width="30%">Operation</th>
+						<th width="35%">in SQL</th>
+						<th width="35%">in HTTP</th>
+					</tr>
+					<tr>
+						<td>Create</td>
+						<td style="font-family:monospace">INSERT</td>
+						<td style="font-family:monospace">POST / PUT</td>
+					</tr>
+					<tr>
+						<td>Read</td>
+						<td style="font-family:monospace">SELECT</td>
+						<td style="font-family:monospace">GET / HEAD</td>
+					</tr>
+					<tr>
+						<td>Update</td>
+						<td style="font-family:monospace">UPDATE</td>
+						<td style="font-family:monospace">PUT / POST</td>
+					</tr>
+					<tr>
+						<td>Delete</td>
+						<td style="font-family:monospace">DELETE</td>
+						<td style="font-family:monospace">DELETE</td>
+					</tr>
+				</table>
+				
+				<div class="build">
+				<p style="margin-top:30px;" class="box bg-nawi-color"><strong>Please note:</strong> The comparison may be flawed on closer consideration. SQL is about manipulating data sets. REST is about transforming application state changes via hypermedia, HTTP and URIs.</p>
+				</div>
+			</article>				
+			
 			<article class="smaller">
 				<h3>HTTP Response Status Codes</h3>				
 				<p>(very incomplete list, only some exampless)</p>
@@ -989,52 +1025,59 @@ name=Benjamin+Erb&login=b_erb</pre></section>
 				<h3>in Practice</h3>
 			</article>
 			
+						
+			<article class="fill">
+				<h1>RESTful Web Services</h1>
+				<h3>REST + HTTP</h3>
+			</article>
+
+			<article class="">
+				<h3>RESTful Web Services</h3>
+				<ul>
+					<li>web services adhering to the REST style</li>
+					<li>HTTP + hypermedia formats</li>
+					<li>e.g. leightweight APIs for mobile/web clients</li>
+				</ul>
+			</article>
+
+			
 			<article class="fill">
 				<q style="font-size:150%; line-height:175%">REST is so trendy, let's rebrand our old HTTP API and call it <em>RESTful</em> from now on!</q>
 				<div class='author'>Hipster CTO</div>
 			</article>
-			
-			
-			
-			
-			
+												
+			<article class="">
+				<h3>RESTful Web Services in Practice</h3>
+				<ul>
+					<li><strong class="nawi-color">REST</strong>: over-hyped term, much confusion</li>
+					<li>HTTP-based API vs. RESTful API</li>
+					<li>different types of REST "compliance"</li>
+				</ul>
+				
+			<div class="build">															
+				
+			<h4>Common mistakes</h4>
+				<ul>
+					<li>URIs contain actions instead of resources</li>
+					<li>links are hard-coded</li>
+					<li>messages are nor self-descriptive</li>
+					<li>ignoring <em>Hypermedia as the Engine of Application State</em></li>
+				</ul>
+				
+				</div>
+			</article>
 			
 			<article class="">
-				<h3>Data Operations</h3>				
-				
-				<table>
-					<tr>
-						<th width="30%">Operation</th>
-						<th width="35%">in SQL</th>
-						<th width="35%">in HTTP</th>
-					</tr>
-					<tr>
-						<td>Create</td>
-						<td style="font-family:monospace">INSERT</td>
-						<td style="font-family:monospace">POST / PUT</td>
-					</tr>
-					<tr>
-						<td>Read</td>
-						<td style="font-family:monospace">SELECT</td>
-						<td style="font-family:monospace">GET / HEAD</td>
-					</tr>
-					<tr>
-						<td>Update</td>
-						<td style="font-family:monospace">UPDATE</td>
-						<td style="font-family:monospace">PUT / POST</td>
-					</tr>
-					<tr>
-						<td>Delete</td>
-						<td style="font-family:monospace">DELETE</td>
-						<td style="font-family:monospace">DELETE</td>
-					</tr>
-				</table>
-				
-				<div class="build">
-				<p style="margin-top:30px;" class="box bg-nawi-color"><strong>Please note:</strong> The comparison may be flawed on closer consideration. SQL is about manipulating data sets. REST is about transforming application state changes via hypermedia, HTTP and URIs.</p>
-				</div>
-			</article>			
-			
+				<h3>RESTful Web Services: Examples</h3>
+				<ul>
+					<li class="in-color">flickr 'REST' API</li>
+					<li class="nawi-color">CouchDB</li>
+					<li class="nawi-color">Twitter API</li>
+					<li class="mawi-color">Atom Publishing Protocol</li>
+				</ul>
+				<div class='source'>Source: <a href="http://nordsc.com/ext/classification_of_http_based_apis.html">nordsc.com/ext/classification_of_http_based_apis.html</a></div>					
+			</article>
+							
 			<article class="">
 				<h3>Advanced Topics and Challenges</h3>
 				<ul>
@@ -1042,15 +1085,250 @@ name=Benjamin+Erb&login=b_erb</pre></section>
 					<li>representation versioning</li>
 					<li>authentication and security in RESTful APIs</li>
 					<li>design of hypermedia-enabled representations</li>
-					<li>etc.</li>
 				</ul>
 			</article>
 				
 		</section>
 		
 		<section>
+			<header>Use Case: RESTful ToDo API</header>		
+			
+			<article class="fill">
+				<h1>Use Case</h1>
+				<h3>RESTful ToDo API</h3>
+			</article>		
+			
+			
+			<article class='fill'>
+				<p>
+					<img src='assets/images/2606902785_c66f951584_b.jpg'>
+				</p>
+				<div class='source white'>Source: cc-by-nc 2.0 bryankennedy on <a href="http://www.flickr.com/photos/bryankennedy/2606902785/">flickr</a></div>
+			</article>
+			
+			
+			<article class="">
+				<h3>Use Case: ToDo API</h3>				
+				<ul>
+					<li>(very) simple demo application</li>
+					<li>"get things done"</li>
+					<li>list of ToDo items</li>
+					<li>priorities and deadlines for entries</li>
+				</ul>
+			</article>			
+								
+			<article class="">
+				<h3>Domain Resources</h3>				
+				<h4>Resource Types?</h4>
+				<ul class="build">
+					<li><code>todo</code> item (primary resource)</li>
+					<li><code>list of todos</code> (collection resource)</li>
+				</ul>
+			</article>			
+					
+			<article class="">
+				<h3>Domain Resources: URIs</h3>				
+				<dl>
+					<dt>Base URI<dt>
+					<dd><code>http://example.com/todo/</code><dd>
+					
+					<dt>List URI<dt>
+					<dd><code>http://example.com/todo/items</code><dd>
+
+					<dt>Item URI<dt>
+					<dd><code>http://example.com/todo/items/{id}</code><dd>
+				</dl>
+				
+				<div class="build">
+				<p style="margin-top:30px;" class="box bg-accent-color">We need URIs for the server implementation. Clients do not and should not need to know URIs <em>a priori</em> (except for the base URI of the service).</p>
+				</div>
+				
+			</article>			
+			
+								
+			<article class="">
+				<h3>Resource Operations</h3>				
+				<ul>
+					<li>list all todo items</li>
+					<li>list todo items (filtered)</li>
+					<li>create a new todo item</li>
+					<li>get a todo item</li>
+					<li>delete a todo item</li>
+					<li>change a todo item (name, deadline, status)</li>
+					<li>get a distinct item (latest, most urgent)</li>
+				</ul>
+			</article>	
+								
+			<article class="smaller">
+				<h3>Item Resource: Uniform Interface</h3>	
+				<p><code>http://example.com/todo/items/{id}</code></p>
+				
+				<table>
+					<tr>
+						<th>Method</th>
+						<th>Operation</th>
+						<th>Req. Entity</th>
+						<th>Resp. Entity</th>
+					</tr>
+					<tr>
+						<td><code>GET</code></td>
+						<td>Read an item</td>
+						<td>n/a</td>
+						<td>item representation</td>
+					</tr>
+					<tr>
+						<td><code>PUT</code></td>
+						<td>Update an item*</td>
+						<td>item representation</td>
+						<td>n/a</td>
+					</tr>
+					<tr>
+						<td><code>DELETE</code></td>
+						<td>Remove an item</td>
+						<td>n/a</td>
+						<td>n/a</td>
+					</tr>
+				</table>
+				<div class="build">
+				<p><br/><br/>(*) If we allow clients to choose the URI of a new item by themselves, <code>PUT</code> can also be used for creating new items.</p>										
+				</div>
+			</article>						
+								
+			<article class="smaller">
+				<h3>Item List Resource</h3>	
+				<p><code>http://example.com/todo/items</code></p>
+				
+				<table>
+					<tr>
+						<th>Method</th>
+						<th>Operation</th>
+						<th>Req. Entity</th>
+						<th>Resp. Entity</th>
+					</tr>
+					<tr>
+						<td><code>GET</code></td>
+						<td>Get a (partial) list</td>
+						<td>n/a</td>
+						<td>list (page)</td>
+					</tr>
+					<tr>
+						<td><code>POST</code></td>
+						<td>Create a new item</td>
+						<td>item representation</td>
+						<td>n/a</td>
+					</tr>
+				</table>										
+			</article>						
+								
+			<article class="">
+				<h3>Resource Representations</h3>				
+				<h4>Generic types</h4>
+				<ul>
+					<li><code>application/json</code></li>
+					<li><code>application/xml</code></li>
+					<li><code>text/plain</code></li>
+					<li><code>text/html</code></li>
+					<li><code>application/x-www-form-urlencoded</code></li>					
+				</ul>
+			</article>					
+														
+			<article class="">				
+				<h3>Resource Representations</h3>				
+				<h4>Customized (vendor-specific) types</h4>
+				<ul>
+					<li><code>application/vnd.<span class="mawi-color">todo.item</span>+<span class="nawi-color">json</span></code></li>
+					<li><code>application/vnd.<span class="mawi-color">todo.list</span>-<span class="med-color">v1</span>+<span class="nawi-color">xml</span></code></li>
+				</ul>				
+			</article>	
 		
-			<header>Conclusion</header>	
+			<article class="fill smaller">				
+				<h3>"Homepage"</h3>		
+<section class="build"><pre>&lt;!DOCTYPE html&gt;  
+&lt;html lang=&quot;en&quot;&gt;  
+  &lt;head&gt;  
+    &lt;meta charset=&quot;utf-8&quot;&gt;  
+  &lt;/head&gt;  
+  &lt;body&gt; 
+  	&lt;h1&gt;ToDos&lt;/h1&gt;
+  	&lt;h2&gt;Navigation&lt;/h2&gt;
+  	&lt;nav&gt;
+  		&lt;ul&gt;
+  			&lt;li&gt;&lt;a href=&quot;./items&quot; rel=&quot;index&quot;&gt;List all items&lt;/a&gt;&lt;/li&gt;
+  			&lt;li&gt;&lt;a href=&quot;&quot; rel=&quot;&quot;&gt;Latest item&lt;/a&gt;&lt;/li&gt;
+  			&lt;li&gt;&lt;a href=&quot;&quot; rel=&quot;&quot;&gt;Latest item&lt;/a&gt;&lt;/li&gt;
+  			&lt;li&gt;&lt;a href=&quot;&quot; rel=&quot;&quot;&gt;Most urgent item&lt;/a&gt;&lt;/li&gt;
+  		&lt;/ul&gt;
+  	&lt;/nav&gt; 
+  	&lt;h2&gt;New Item&lt;/h2&gt;
+  	&lt;form name=&quot;new_item&quot; method=&quot;post&quot; enctype=&quot;application/x-www-form-urlencoded&quot; action=&quot;./items&quot;&gt;
+		&lt;input type=&quot;text&quot; name=&quot;title&quot; /&gt;  		
+		&lt;input type=&quot;text&quot; name=&quot;description&quot; /&gt;  		
+		&lt;input type=&quot;range&quot; name=&quot;priority&quot; min=&quot;1&quot; max=&quot;5&quot; /&gt;  		
+		&lt;input type=&quot;date&quot; name=&quot;due&quot; /&gt;  		
+		&lt;input type=&quot;submit&quot; /&gt;
+  	&lt;/form&gt;
+  &lt;/body&gt;  
+&lt;/html&gt;  </pre></section>  								
+			</article>	
+
+			<article class="">				
+				<h3>List All Items</h3>						
+			</article>	
+
+			<article class="">				
+				<h3>Get a ToDo Item</h3>	
+<section class="build"><pre>{
+   "title":"Eat some cookies",
+   "description":"Don't forget the bright side of the dark side",
+   "priority":5,
+   "due":"2012-02-10",
+   "done":false
+}</pre></section>  										
+			</article>	
+
+			<article class="">				
+				<h3>Update a ToDo Item</h3>						
+			</article>	
+
+			<article class="">				
+				<h3>Remove a ToDo Item</h3>						
+			</article>	
+
+			<article class="">				
+				<h3>Create a New ToDO Item</h3>						
+			</article>	
+
+			<article class="">				
+				<h3>Get a Distinct Item</h3>	
+				<h4>Alias URIs</h4>		
+				<dl>
+					<dt>Latest item<dt>
+					<dd><code>http://example.com/todo/items/latest</code><dd>
+					
+					<dt>Most urgent item<dt>
+					<dd><code>http://example.com/todo/items/urgent</code><dd>		
+				</dl>
+				
+<section class="build"><pre>GET /todo/items/latest HTTP/1.1
+…</pre></section>
+ <section class="build"><pre>
+HTTP/1.1 303 See Other
+Location: /todo/items/4711
+…</pre>
+</section>										
+			</article>	
+
+					
+		</section>
+		
+		<section>
+		
+			<header>Conclusion</header>
+			
+			<article class="fill">
+				<h1>Conclusion</h1>
+			</article>		
+						
 			
 			<article>
 				<h3>Recap</h3>
