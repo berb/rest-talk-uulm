@@ -1,0 +1,33 @@
+<!DOCTYPE html>  
+<html lang="en">  
+  <head>  
+    <meta charset="utf-8" />  
+    <link rel="self" href="http://example.com/todo/items?cursor=4" />
+    <link rel="alternate" href="http://example.com/todo/items" />
+  </head>  
+  <body> 
+    <h1>ToDos</h1>
+    <h2>Navigation</h2>
+    <nav>
+      <ul>
+        <li><a href="http://example.com/documentation/todo/" rel="help">Documentation</a></li>
+        <li><a href="./" rel="index">Homepage</a></li>
+        <li><a href="items/latest" rel="http://example.com/todo/rel/latest">Latest item</a></li>
+        <li><a href="items/urgent" rel="http://example.com/todo/rel/urgent">Most urgent item</a></li>
+      </ul>
+    </nav> 
+    <h2>List</h2>
+    <ol start="4">
+      <li class="http://example.com/documentation/todo/#item">
+        <a href="http://example.com/todo/items/4" rel="self">Eat some cookies</a>
+      </li>
+      <li class="http://example.com/documentation/todo/#item">
+        <a href="http://example.com/todo/items/5" rel="self">Drink some coffee</a>
+      </li>
+    </ol>
+    <ul>
+      <li><a href="http://example.com/todo/items?cursor=6" rel="next">next page</a></li>
+      <li><a href="http://example.com/todo/items?cursor=2" rel="previous">previous page</a></li>
+    </ul>
+  </body>  
+</html> 

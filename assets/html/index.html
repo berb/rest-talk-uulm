@@ -1,0 +1,35 @@
+<!DOCTYPE html>  
+<html lang="en">  
+  <head>  
+    <meta charset="utf-8" />  
+    <link rel="self" href="http://example.com/todo" />
+  </head>  
+  <body> 
+    <h1>ToDos</h1>
+    <h2>Navigation</h2>
+    <nav>
+      <ul>
+        <li><a href="http://example.com/documentation/todo/" rel="help">Documentation</a></li>
+        <li><a href="items" rel="archives">List all items</a></li>
+        <li><a href="items/latest" rel="http://example.com/todo/rel/latest">Latest item</a></li>
+        <li><a href="items/urgent" rel="http://example.com/todo/rel/urgent">Most urgent item</a></li>
+      </ul>
+    </nav> 
+    <h2>New Item</h2>
+      <form name="new_item" method="post" action="items" enctype="application/x-www-form-urlencoded">
+        <input type="text" name="title" />  		
+        <input type="text" name="description" />  		
+        <input type="range" name="priority" min="1" max="5" />  		
+        <input type="date" name="due" />  		
+        <input type="submit" />
+      </form>  	
+    <h2>Filtered List</h2>
+      <form name="filtered_list" method="get" action="items" enctype="application/x-www-form-urlencoded">
+      <input type="checkbox" name="done" />  		
+      <input type="range" name="priority" min="1" max="5" />  		
+      <input type="date" name="due_before" />  		
+      <input type="cursor" name="number" />  		
+      <input type="submit" />
+    </form>
+  </body>  
+</html>  

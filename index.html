@@ -786,6 +786,7 @@ Sorry, can't do that!</pre>
 					<li>HTML5</li>
 					<li>Atom</li>
 				</ul>	
+		
 			</article> 			
 			 			
 			<article>
@@ -997,7 +998,21 @@ name=Benjamin+Erb&login=b_erb</pre></section>
 					<li>submitting forms</li>
 					<li>accessing resources</li>
 				</ul>					
-			</article>					
+			</article>	
+			
+			<article class="">
+				<h3>Hypermedia: Resource Representations</h3>	
+				<ul>
+					<li>representations should support hypermedia</li>
+					<li>XHTML, Atom, etc.</li>
+				</ul>				
+							
+				<div class="build">
+				<p style="margin-top:30px;" class="box bg-accent-color">XML and JSON are also popular generic formats. Note however, that they don't have a standardized way of expressing links or forms.</p>
+				</div>						
+			</article>	
+			
+							
 			
 			<article class="">
 				<h3>Hypermedia as the Engine of Application State</h3>	
@@ -1121,8 +1136,10 @@ name=Benjamin+Erb&login=b_erb</pre></section>
 				<h3>Domain Resources</h3>				
 				<h4>Resource Types?</h4>
 				<ul class="build">
+					<li><code>"homepage"</code> (abstract resource)</li>
 					<li><code>todo</code> item (primary resource)</li>
 					<li><code>list of todos</code> (collection resource)</li>
+					<li class="accent-color">external documentation resource (for humans)</li>
 				</ul>
 			</article>			
 					
@@ -1149,6 +1166,8 @@ name=Benjamin+Erb&login=b_erb</pre></section>
 			<article class="">
 				<h3>Resource Operations</h3>				
 				<ul>
+					<li>open "homepage"</li>
+					<li>open documentation</li>
 					<li>list all todo items</li>
 					<li>list todo items (filtered)</li>
 					<li>create a new todo item</li>
@@ -1195,7 +1214,7 @@ name=Benjamin+Erb&login=b_erb</pre></section>
 			</article>						
 								
 			<article class="smaller">
-				<h3>Item List Resource</h3>	
+				<h3>Item List Resource: Uniform Interface</h3>	
 				<p><code>http://example.com/todo/items</code></p>
 				
 				<table>
@@ -1222,7 +1241,7 @@ name=Benjamin+Erb&login=b_erb</pre></section>
 								
 			<article class="">
 				<h3>Resource Representations</h3>				
-				<h4>Generic types</h4>
+				<h4>Option A: Generic types</h4>
 				<ul>
 					<li><code>application/json</code></li>
 					<li><code>application/xml</code></li>
@@ -1234,69 +1253,330 @@ name=Benjamin+Erb&login=b_erb</pre></section>
 														
 			<article class="">				
 				<h3>Resource Representations</h3>				
-				<h4>Customized (vendor-specific) types</h4>
+				<h4>Option B: Customized (vendor-specific) types</h4>
 				<ul>
 					<li><code>application/vnd.<span class="mawi-color">todo.item</span>+<span class="nawi-color">json</span></code></li>
 					<li><code>application/vnd.<span class="mawi-color">todo.list</span>-<span class="med-color">v1</span>+<span class="nawi-color">xml</span></code></li>
-				</ul>				
+				</ul>	
+				<div class="build">
+				<p><br/><br/><em class="accent-color">We will use various representations in the following. Remember content negotiation: Clients will indicate representations they are interested in.</em></p>										
+				</div>			
 			</article>	
-		
+			
+			<article class="">
+				<h3>Resource: Documentation</h3>
+				<ul class="">
+					<li>helps developers to program clients</li>
+					<li>describes link relations</li>
+					<li>describes form types/fields</li>
+					<li>describes content semantics, e.g. classes in HTML</li>
+					<li>describes custom content types, if any</li>
+				</ul>
+			</article>	
+						
+			<article class="">
+				<h3>Resource: "Homepage"</h3>
+				<ul class="">
+					<li>link to documentation</li>
+					<li>link to distinct items</li>
+					<li>link to item list</li>
+					<li>form for new items</li>
+					<li>form for filtered list view</li>
+				</ul>
+			</article>	
+
 			<article class="fill smaller">				
-				<h3>"Homepage"</h3>		
+				<h3>"Homepage" (here: HTML5 Representation)</h3>		
 <section class="build"><pre>&lt;!DOCTYPE html&gt;  
 &lt;html lang=&quot;en&quot;&gt;  
   &lt;head&gt;  
-    &lt;meta charset=&quot;utf-8&quot;&gt;  
+    &lt;meta charset=&quot;utf-8&quot; /&gt;  
+    &lt;link rel=&quot;self&quot; href=&quot;http://example.com/todo&quot; /&gt;
   &lt;/head&gt;  
   &lt;body&gt; 
-  	&lt;h1&gt;ToDos&lt;/h1&gt;
-  	&lt;h2&gt;Navigation&lt;/h2&gt;
-  	&lt;nav&gt;
-  		&lt;ul&gt;
-  			&lt;li&gt;&lt;a href=&quot;./items&quot; rel=&quot;index&quot;&gt;List all items&lt;/a&gt;&lt;/li&gt;
-  			&lt;li&gt;&lt;a href=&quot;&quot; rel=&quot;&quot;&gt;Latest item&lt;/a&gt;&lt;/li&gt;
-  			&lt;li&gt;&lt;a href=&quot;&quot; rel=&quot;&quot;&gt;Latest item&lt;/a&gt;&lt;/li&gt;
-  			&lt;li&gt;&lt;a href=&quot;&quot; rel=&quot;&quot;&gt;Most urgent item&lt;/a&gt;&lt;/li&gt;
-  		&lt;/ul&gt;
-  	&lt;/nav&gt; 
-  	&lt;h2&gt;New Item&lt;/h2&gt;
-  	&lt;form name=&quot;new_item&quot; method=&quot;post&quot; enctype=&quot;application/x-www-form-urlencoded&quot; action=&quot;./items&quot;&gt;
-		&lt;input type=&quot;text&quot; name=&quot;title&quot; /&gt;  		
-		&lt;input type=&quot;text&quot; name=&quot;description&quot; /&gt;  		
-		&lt;input type=&quot;range&quot; name=&quot;priority&quot; min=&quot;1&quot; max=&quot;5&quot; /&gt;  		
-		&lt;input type=&quot;date&quot; name=&quot;due&quot; /&gt;  		
-		&lt;input type=&quot;submit&quot; /&gt;
-  	&lt;/form&gt;
+    &lt;h1&gt;ToDos&lt;/h1&gt;
+    &lt;h2&gt;Navigation&lt;/h2&gt;
+    &lt;nav&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&quot;http://example.com/documentation/todo/&quot; rel=&quot;help&quot;&gt;
+        Documentation&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;items&quot; rel=&quot;archives&quot;&gt;
+        List all items&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;items/latest&quot; rel=&quot;http://example.com/todo/rel/latest&quot;&gt;
+        Latest item&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;items/urgent&quot; rel=&quot;http://example.com/todo/rel/urgent&quot;&gt;
+        Most urgent item&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/nav&gt; 
+    &lt;h2&gt;New Item&lt;/h2&gt;
+      &lt;-- new item form --&gt; 
+    &lt;h2&gt;Filtered List&lt;/h2&gt;
+      &lt;-- filtered list form --&gt; 
   &lt;/body&gt;  
 &lt;/html&gt;  </pre></section>  								
 			</article>	
+			
+			<article class="">
+				<h3>"Homepage" (here: HTML5 Representation)</h3>
+				<iframe src='assets/html/index.html'></iframe>
+			</article>
 
 			<article class="">				
-				<h3>List All Items</h3>						
+				<h3>Resource: List</h3>	
+				<ul class="">
+					<li>partial list (limited length)</li>
+					<li>links to listed items</li>
+					<li>pagination (via cursor, next/previous relations)</li>
+					<li>two items per page</li>
+				</ul>	
+			</article>
+			
+	
+
+			<article class="fill smaller">				
+				<h3>List (here: HTML5 Representation)</h3>	
+				<section class="build"><pre>&lt;!DOCTYPE html&gt;  
+&lt;html lang=&quot;en&quot;&gt;  
+  &lt;head&gt;  
+    &lt;meta charset=&quot;utf-8&quot; /&gt;  
+    &lt;link rel=&quot;self&quot; href=&quot;http://example.com/todo/items?cursor=4&quot; /&gt;
+    &lt;link rel=&quot;alternate&quot; href=&quot;http://example.com/todo/items&quot; /&gt;
+  &lt;/head&gt;  
+  &lt;body&gt; 
+    &lt;h1&gt;ToDos&lt;/h1&gt;
+    &lt;h2&gt;Navigation&lt;/h2&gt;
+    &lt;nav&gt; … &lt;/nav&gt; 
+    &lt;h2&gt;List&lt;/h2&gt;
+    &lt;ol start=&quot;4&quot;&gt;
+      &lt;li class=&quot;http://example.com/documentation/todo/#item&quot;&gt;
+        &lt;a href=&quot;http://example.com/todo/items/4&quot; rel=&quot;self&quot;&gt;Eat some cookies&lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li class=&quot;http://example.com/documentation/todo/#item&quot;&gt;
+        &lt;a href=&quot;http://example.com/todo/items/5&quot; rel=&quot;self&quot;&gt;Drink some coffee&lt;/a&gt;
+      &lt;/li&gt;
+    &lt;/ol&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;items?cursor=6&quot; rel=&quot;next&quot;&gt;next page&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;items?cursor=2&quot; rel=&quot;previous&quot;&gt;previous page&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/body&gt;  
+&lt;/html&gt;  </pre></section>  		
 			</article>	
+			
+									
+			<article class="">
+				<h3>List (here: HTML5 Representation)</h3>
+				<iframe src='assets/html/list.html'></iframe>
+			</article>
+			
 
 			<article class="">				
-				<h3>Get a ToDo Item</h3>	
+				<h3>Filtered Lists</h3>	
+				<ul class="">
+					<li>query parameters for filters, filtered result set</li>
+					<li>accessible via form (using <code>GET</code>)</li>
+					<li>c.f. <code>WHERE</code> of SQL</li>
+				</ul>
+				<div class="build">	
+				<h4>Examples</h4>
+				<p><code>http://example.com/todo/items</code></p>
+				<ul>
+					<li><code>?done=false&due_before=2012-02-15</code></li>
+					<li><code>?priority=5&cursor=6</code></li>
+				</ul>
+				</div>
+			</article>			
+
+			<article class="">				
+				<h3>Resource: ToDo Item</h3>	
+				<ul class="">
+					<li>title, description, priority, date due, done flag</li>
+					<li>links to listed items</li>
+					<li>pagination (via cursor, next/previous relations)</li>
+				</ul>	
+			</article>
+				
+			<article class="smaller">				
+				<h3>ToDo Item  (here: JSON Representation)</h3>	
 <section class="build"><pre>{
-   "title":"Eat some cookies",
-   "description":"Don't forget the bright side of the dark side",
-   "priority":5,
-   "due":"2012-02-10",
-   "done":false
+   "item":{
+      "link":{
+         "rel":"self",
+         "href":"http://example.com/todo/items/4"
+      },
+      "title":"Eat some cookies",
+      "description":"Don't forget the bright side of the dark side",
+      "priority":5,
+      "due":"2012-02-10",
+      "done":false
+   },
+   "links":[
+      {
+         "rel":"index",
+         "href":"http://example.com/todo"
+      },
+      {
+         "rel":"help",
+         "href":"http://example.com/documentation/todo/"
+      }
+   ]
 }</pre></section>  										
 			</article>	
+							
+			<article class="smaller">				
+				<h3>Getting a ToDo Item</h3>	
+				
+<section class="build"><pre>GET /todo/items/4 HTTP/1.1
+Accept: application/vnd.todo.item+json; q=0.8, text/html
+…
+</pre></section>
+ <section class="build"><pre>
+HTTP/1.1 200 OK
+Last-Modified: Tue, 01 Feb 2012 12:45:26 GMT
+ETag: "3-737060cd8"
+Cache-Control: max-age=3600
+Content-Type: application/vnd.todo.item+json
+…
 
-			<article class="">				
-				<h3>Update a ToDo Item</h3>						
+{
+   "item":{
+      "link":{
+         "rel":"self",
+         "href":"http://example.com/todo/items/4"
+      }
+    }
+    …
+}</pre></section>				
+								
 			</article>	
 
 			<article class="">				
-				<h3>Remove a ToDo Item</h3>						
+				<h3>Creating a New ToDO Item</h3>	
+				<ul>
+					<li>using a HTML form, submit via <code>POST</code></li>
+					<li>or: clients generates JSON, <code>POST</code>s to collection resource (<code>/items</code>)</li>
+				</ul>	
 			</article>	
+				
+			<article class="smaller">						
+				<h3>Creating a New ToDO Item</h3>	
+				
+ <section class="build"><pre>
+ &lt;h2&gt;New Item&lt;/h2&gt;
+  &lt;form name=&quot;new_item&quot; method=&quot;post&quot; action=&quot;items&quot; enctype=&quot;application/x-www-form-urlencoded&quot;&gt;
+    &lt;input type=&quot;text&quot; name=&quot;title&quot; /&gt;  		
+    &lt;input type=&quot;text&quot; name=&quot;description&quot; /&gt;  		
+    &lt;input type=&quot;range&quot; name=&quot;priority&quot; min=&quot;1&quot; max=&quot;5&quot; /&gt;  		
+    &lt;input type=&quot;date&quot; name=&quot;due&quot; /&gt;  		
+    &lt;input type=&quot;submit&quot; /&gt;
+  &lt;/form&gt;  				
+</pre></section>
+				
+							 <section class="build"><pre>POST /todo/items HTTP/1.1
+Host: example.org
+Content-Type: application/x-www-form-urlencoded
+…
+
+title=Buy+coffee&description=Out+of+caffeine&priority=5
+&due=2012-02-12</pre></section>	
+
+ <section class="build"><pre>
+HTTP/1.1 201 Created
+Location: http://example.com/todo/items/13
+…</pre></section>
+			</article>	
+			
+
+			<article class="smaller">				
+				<h3>Removing a ToDo Item</h3>						
+				<ul>
+					<li>client issues a <code>DELETE</code> against the URI</li>
+					<li>server removes resource</li>
+				</ul>
+				<section class="build"><pre>DELETE /todo/items/4 HTTP/1.1
+…
+</pre></section>
+ <section class="build"><pre>
+HTTP/1.1 204 No Content
+…</pre></section>
+
+<section class="build"><pre>GET /todo/items/4 HTTP/1.1
+…
+</pre></section>
+ <section class="build"><pre>
+HTTP/1.1 410 Gone
+…</pre></section>						
+			</article>				
+
 
 			<article class="">				
-				<h3>Create a New ToDO Item</h3>						
+				<h3>Updating a ToDo Item</h3>		
+				<h4>Remember</h4>				
+				<ul>
+					<li>Manipulation via Representations</li>
+					<li>Hypermedia as the Engine of Application State</li>
+				</ul>
+				<div class="build">
+				<h4>Steps</h4>				
+				<ul>
+					<li>client <code>GET</code>s a representation from the server</li>
+					<li>client modifies represenation locally</li>
+					<li>client <code>PUT</code>s new representation to the server</li>
+					<li>alternative: pre-populated form (HTML)</li>
+				</ul>
+				</div>
 			</article>	
+			
+<article class="smaller">				
+				<h3>Updating a ToDo Item</h3>	
+				<section class="build"><pre>PUT /todo/items/4 HTTP/1.1
+Content-Type: application/vnd.todo.item+json
+…
+
+{
+   "item":{
+      "link":{
+         "rel":"self",
+         "href":"http://example.com/todo/items/4"
+      },
+      "title":"Eat some cookies",
+      "description":"Don't forget the bright side of the dark side",
+      "priority":5,
+      "due":"2012-02-10",
+      "done":true
+   },
+   "links":[…]
+}</pre></section>
+ <section class="build"><pre>
+HTTP/1.1 202 Accpeted
+…</pre></section>	
+</article>	
+
+			<article class="smaller">				
+				<h3>Updating: Optimistic Concurrency Control </h3>						
+				<section class="build"><pre>GET /todo/items/4 HTTP/1.1
+…
+
+HTTP/1.1 200 OK
+E-Tag: "3-737060cd8"
+…</pre></section>
+
+<section class="build"><pre>PUT /todo/items/4 HTTP/1.1
+If-Match "3-737060cd8"
+…
+
+HTTP/1.1 202 Accepted
+E-Tag: "4-123bcd21"
+…</pre></section>						
+
+<section class="build"><pre>PUT /todo/items/4 HTTP/1.1
+If-Match "3-737060cd8"
+…
+
+HTTP/1.1 412 Precondition Failed
+…</pre></section>						
+			</article>	
+
 
 			<article class="">				
 				<h3>Get a Distinct Item</h3>	
@@ -1318,6 +1598,41 @@ Location: /todo/items/4711
 </section>										
 			</article>	
 
+			<article class="fill">
+				<h1>So what?</h1>
+				<h3>Results</h3>
+			</article>	
+
+			<article class="">				
+				<h3>Loose Coupling &amp; Interoperability</h3>		
+				<ul>
+					<li>decoupled implementations</li>
+					<li>pick any language/framework with a HTTP library</li>
+					<li>clients only need limited knowledge (i.e. relations and representations)</li>
+					<li>reuse of existing HTTP technology</li>
+					<li>clients can negotiate appropriate representations</li>
+					<li>server can change URIs and resources</li>
+				</ul>
+			</article>		
+					
+			<article class="">				
+				<h3>Scalability</h3>		
+				<ul>
+					<li>add more servers</li>
+					<li>install a load balancer upfront</li>
+					<li>use a reverse proxy with caching support</li>
+					<li>integration of external services (remember the web)</li>
+				</ul>
+			</article>		
+					
+			<article class="">				
+				<h3>Performance and Caching</h3>		
+				<ul>
+					<li>proxies/clients can cache items</li>
+					<li>reduces traffic</li>
+					<li>efficient implementations due to caching</li>
+				</ul>
+			</article>		
 					
 		</section>
 		
