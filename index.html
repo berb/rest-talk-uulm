@@ -120,18 +120,12 @@
 				<h3>Distributed Systems – Why?</h3>
 				<h4>Non-functional Features</h4>
 				<ul>
-					<li>fault-tolerant</li>
-					<li>highly available</li>
-					<li>scalable</li>
-					<li>performant</li>
+					<li>fault-tolerance</li>
+					<li>high availability</li>
+					<li>scalablity</li>
+					<li>performancce</li>
+					<li>openness</li>
 				</ul>
-<!--
-				<h4>Openness</h4>
-				<ul>
-					<li>connect new machines to the system</li>
-					<li>access the system remotely through public interfaces</li>
-				</ul>
--->
 			</article>
 			
 									
@@ -246,48 +240,6 @@
 				<h1>Why not use TCP or UDP sockets directly?</h1>
 			</article>	
 			
-			<article class="">
-				<h3>Echo Server in Java</h3>
-				<section>		
-<pre>public class EchoServer
-{
-  public static void main(String[] args) throws IOException
-  {
-    ServerSocket serverSocket = new ServerSocket(4711);
-    Socket socket = null;
-    while ((socket = serverSocket.accept()) != null)
-    {
-      int b;
-      while ((b = socket.getInputStream().read()) != -1)
-      {
-        socket.getOutputStream().write((byte) b);
-      }
-    }
-  }
-}</pre>
-				</section>
-			</article>											
-			
-			<article class="">
-				<h3>Echo Client in Java</h3>
-				<section>		
-<pre>public class EchoClient
-{
-  public static void main(String[] args) throws IOException
-  {
-    Socket socket = new Socket("localhost",4711);
-    socket.getOutputStream().write("Hello World".getBytes());
-    InputStream is = socket.getInputStream();
-    InputStreamReader i = new InputStreamReader(is);
-    BufferedReader r = new BufferedReader(i);
-    String l;
-    while( (l = r.readLine()) != null){
-      System.out.println(l); 
-    }
-  }
-}</pre>
-				</section>
-			</article>
 			
 			<article class="">
 				<h3>Why not use TCP or UDP sockets directly?</h3>
@@ -327,26 +279,7 @@
 				<p>JMS, AMQP, ØMQ, etc.</p>
 			</article>									
 															
-			<article class="">
-				<h3>Message Queue Example: ØMQ + node.js</h3>
-				<section>		
-<pre>var zmq = require('zeromq')
 
-var zmqSocket = zmq.createSocket('req')
-
-//Callback for receiving messages
-zmqSocket.on("message", function(msg) {
-	console.log("Received msg:" + msg);
-});
-
-//connect to message queue
-zmqSocket.connect("tcp://localhost:5555");
-
-//Sending messages
-zmqSocket.send("Hello");</pre>
-				</section>
-				<div  class='source'>More about ØMQ: <a href="http://www.zeromq.org/">zeromq.org</a></div>				
-			</article>
 			
 			<article class="">
 				<h3>Message Queue Example: Message Flow</h3>							
@@ -366,48 +299,6 @@ zmqSocket.send("Hello");</pre>
 				<h4>Examples</h4>
 				<p>Sun RPC, CORBA, Java RMI, Apache thrift, etc.</p>
 			</article>
-			
-			<article class="smaller">
-				<h3>RMI Example: Remote Adder with Java RMI</h3>
-				<section>		
-<pre>public interface Adder extends Remote
-{
-    public int add(int a, int b) throws RemoteException;
-}</pre>
-				</section>
-				<section>		
-<pre>public class RemoteAdderImpl extends UnicastRemoteObject implements Adder
-{
-    protected RemoteAdderImpl() throws RemoteException
-    {
-        super();
-    }
-
-    @Override
-    public int add(int a, int b) throws RemoteException
-    {
-        return (a+b);
-    }
-}</pre>
-				</section>				
-			</article>	
-					
-			<article class="">
-				<h3>RMI Example: Remote Adder with Java RMI</h3>
-				<p>Create and register object (JVM A):</p>
-				<section>		
-<pre>Naming.bind("rmi://localhost/adder", new RemoteAdderImpl() );</pre>
-				</section>
-
-				<p>Access remote object (JVM B):</p>
-				<section>		
-<pre>Adder adder = (Adder) Naming.lookup("rmi://localhost/adder");
-int result = adder.add(1,1);
-</pre>
-				</section>
-				<p><code>adder.add(1,1)</code> looks like a regular statement thanks to RMI.</p>				
-				<p>Note that both JVMs can be hosted on different machines.</p>
-			</article>	
 			
 			<article class="">
 				<h3>RMI Example: Call Flow</h3>							
@@ -1370,6 +1261,34 @@ name=Benjamin+Erb&login=b_erb</pre></section>
 			</article>
 			
 
+			<article class="fill smaller">				
+				<h3>List (here: JSON Representation)</h3>	
+				<section class="build"><pre>{
+   "list":[
+      {
+         "item":{
+            "title":"Eat some cookies"
+         },
+         "link":{ "rel":"self", "href":"http://example.com/todo/items/4" }
+         }
+      },
+      {
+         "item":{
+            "title":"Drink some coffee"
+         },
+         "link":{ "rel":"self", "href":"http://example.com/todo/items/5" }
+      }
+   ],
+   "links":[
+      { "rel":"self", "href":"http://example.com/todo/items?cursor=4" },
+      { "rel":"alternate", "href":"http://example.com/todo/items" },
+      { "rel":"next", "href":"http://example.com/todo/items?cursor=6" },
+      { "rel":"previous", "href":"http://example.com/todo/items?cursor=2" }
+   ]
+}</pre></section>  		
+			</article>				
+			
+
 			<article class="">				
 				<h3>Filtered Lists</h3>	
 				<ul class="">
@@ -1602,6 +1521,15 @@ Location: /todo/items/4711
 				<h1>So what?</h1>
 				<h3>Results</h3>
 			</article>	
+			
+			<article class="">				
+				<h3>Using HTTP as Enabling Technology </h3>		
+				<ul>
+					<li>already solves many problems of distributed systems</li>
+					<li>wide-spread</li>
+					<li>mature, battle-tested technology</li>
+				</ul>
+			</article>				
 
 			<article class="">				
 				<h3>Loose Coupling &amp; Interoperability</h3>		
@@ -1609,7 +1537,7 @@ Location: /todo/items/4711
 					<li>decoupled implementations</li>
 					<li>pick any language/framework with a HTTP library</li>
 					<li>clients only need limited knowledge (i.e. relations and representations)</li>
-					<li>reuse of existing HTTP technology</li>
+					<li>reuse of existing HTTP components</li>
 					<li>clients can negotiate appropriate representations</li>
 					<li>server can change URIs and resources</li>
 				</ul>
@@ -1780,6 +1708,131 @@ Location: /todo/items/4711
 			
 		</section>
 		
+
+		<section>					
+			<article>
+				<h3>Contents</h3>
+				<nav class="toc" />
+			</article>
+		</section>		
+		
+				
+
+		<section>	
+			<header>Backup Slides</header>				
+			
+
+			<article class="fill">
+				<h1>Distributed Systems</h1>
+				<h3>Middleware Systems</h3>
+			</article>		
+			
+			<article class="">
+				<h3>Echo Server in Java</h3>
+				<section>		
+<pre>public class EchoServer
+{
+  public static void main(String[] args) throws IOException
+  {
+    ServerSocket serverSocket = new ServerSocket(4711);
+    Socket socket = null;
+    while ((socket = serverSocket.accept()) != null)
+    {
+      int b;
+      while ((b = socket.getInputStream().read()) != -1)
+      {
+        socket.getOutputStream().write((byte) b);
+      }
+    }
+  }
+}</pre>
+				</section>
+			</article>											
+			
+			<article class="">
+				<h3>Echo Client in Java</h3>
+				<section>		
+<pre>public class EchoClient
+{
+  public static void main(String[] args) throws IOException
+  {
+    Socket socket = new Socket("localhost",4711);
+    socket.getOutputStream().write("Hello World".getBytes());
+    InputStream is = socket.getInputStream();
+    InputStreamReader i = new InputStreamReader(is);
+    BufferedReader r = new BufferedReader(i);
+    String l;
+    while( (l = r.readLine()) != null){
+      System.out.println(l); 
+    }
+  }
+}</pre>
+				</section>
+			</article>				
+		
+			<article class="">
+				<h3>Message Queue Example: ØMQ + node.js</h3>
+				<section>		
+<pre>var zmq = require('zeromq')
+
+var zmqSocket = zmq.createSocket('req')
+
+//Callback for receiving messages
+zmqSocket.on("message", function(msg) {
+	console.log("Received msg:" + msg);
+});
+
+//connect to message queue
+zmqSocket.connect("tcp://localhost:5555");
+
+//Sending messages
+zmqSocket.send("Hello");</pre>
+				</section>
+				<div  class='source'>More about ØMQ: <a href="http://www.zeromq.org/">zeromq.org</a></div>				
+			</article>						
+			
+			<article class="smaller">
+				<h3>RMI Example: Remote Adder with Java RMI</h3>
+				<section>		
+<pre>public interface Adder extends Remote
+{
+    public int add(int a, int b) throws RemoteException;
+}</pre>
+				</section>
+				<section>		
+<pre>public class RemoteAdderImpl extends UnicastRemoteObject implements Adder
+{
+    protected RemoteAdderImpl() throws RemoteException
+    {
+        super();
+    }
+
+    @Override
+    public int add(int a, int b) throws RemoteException
+    {
+        return (a+b);
+    }
+}</pre>
+				</section>				
+			</article>	
+					
+			<article class="">
+				<h3>RMI Example: Remote Adder with Java RMI</h3>
+				<p>Create and register object (JVM A):</p>
+				<section>		
+<pre>Naming.bind("rmi://localhost/adder", new RemoteAdderImpl() );</pre>
+				</section>
+
+				<p>Access remote object (JVM B):</p>
+				<section>		
+<pre>Adder adder = (Adder) Naming.lookup("rmi://localhost/adder");
+int result = adder.add(1,1);
+</pre>
+				</section>
+				<p><code>adder.add(1,1)</code> looks like a regular statement thanks to RMI.</p>				
+				<p>Note that both JVMs can be hosted on different machines.</p>
+			</article>				
+		</section>
 
 		<section>					
 			<article>
