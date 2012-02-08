@@ -104,11 +104,13 @@
 				</p>
 				<div style="clear:both;"></div>
 				
-				<ul class="build">
+				<div class="build">
+				<ul class="">
 					<li>more machines → more resources</li>
 					<li>more CPUs → more computing power</li>
 					<li>more storage → higher capacity </li>
 				</ul>
+				</div>
 			</article>			
 						
 			<article class="">
@@ -753,12 +755,14 @@ name=Benjamin+Erb&login=b_erb</pre></section>
 					<code>http://foo.bar/query?sid=61AUOh6W1TA&page=next</code>
 				</p>
 				
-				<ul class="build">
+				<div class="build" style="padding-top:20px">
+				<ul class="">
 					<li>server creates a session for each search</li>
 					<li>session contains search term and current page</li>
 					<li>"next" URI contains session ID and action (next)</li>
 					<li>the state of the search is hidden in the session state</li>
 				</ul>				
+				</div>				
 			</article>							
 									
 			<article class="">
@@ -769,12 +773,14 @@ name=Benjamin+Erb&login=b_erb</pre></section>
 					<code>http://foo.bar/query?term=uni+ulm&start=10</code>
 				</p>
 				
-				<ul class="build">
+				<div class="build" style="padding-top:20px">
+				<ul >
 					<li>URI contains all information of the search state</li>
 					<li>search term 'uni ulm', skip the first 10 results</li>
 					<li>client manages search state</li>
 					<li>server answers request without looking up a session</li>
-				</ul>				
+				</ul>
+				</div>				
 			</article>	
 			
 			<article class="">
@@ -932,7 +938,7 @@ name=Benjamin+Erb&login=b_erb</pre></section>
 				<ul>
 					<li>URIs contain actions instead of resources</li>
 					<li>links are hard-coded</li>
-					<li>messages are nor self-descriptive</li>
+					<li>messages are not self-descriptive</li>
 					<li>ignoring <em>Hypermedia as the Engine of Application State</em></li>
 				</ul>
 				
@@ -1275,9 +1281,11 @@ name=Benjamin+Erb&login=b_erb</pre></section>
 			<article class="">				
 				<h3>Resource: ToDo Item</h3>	
 				<ul class="">
-					<li>title, description, priority, date due, done flag</li>
-					<li>links to listed items</li>
-					<li>pagination (via cursor, next/previous relations)</li>
+					<li>title</li>
+					<li>description</li>
+					<li>priority</li>
+					<li>date due</li>
+					<li>done flag</li>
 				</ul>	
 			</article>
 				
@@ -1513,7 +1521,7 @@ Location: /todo/items/4711
 				<h3>Scalability</h3>		
 				<ul>
 					<li>add more servers</li>
-					<li>install a load balancer upfront</li>
+					<li>install a load balancer in front</li>
 					<li>use a reverse proxy with caching support</li>
 					<li>integration of external services (remember the web)</li>
 				</ul>
