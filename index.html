@@ -89,11 +89,6 @@
 					<div class='author'>Leslie Lamport</div>
 			</article>	
 			
-			<article class="meme">		
-				<img class="centered" src="assets/memes/haha.png">
-				<div class='source'><a href="http://ragefac.es/53">http://ragefac.es/53</a></div>
-			</article>
-			
 			<article class="fill">
 				<q style="font-size:140%; line-height:175%">A collection of independent computers that appears to its users as a single coherent system.</q>
 					<div class='author'>Andrew Tanenbaum</div>
@@ -110,7 +105,7 @@
 				<div style="clear:both;"></div>
 				
 				<ul class="build">
-					<li>more machines → more performance</li>
+					<li>more machines → more resources</li>
 					<li>more CPUs → more computing power</li>
 					<li>more storage → higher capacity </li>
 				</ul>
@@ -122,6 +117,7 @@
 				<ul>
 					<li>fault-tolerance</li>
 					<li>high availability</li>
+					<li>reliability</li>
 					<li>scalablity</li>
 					<li>performancce</li>
 					<li>openness</li>
@@ -167,28 +163,8 @@
 			
 			<article class="fill">
 				<h1>So easy! Really?</h1>
+				<h3><br/>Unfortunately, distributed systems are hard!</h3>
 			</article>
-			
-			<article>
-				<h3>Fallacies of Distributed Computing</h3>
-				<ol class="#build">
-					<li>The network is reliable.</li>
-					<li>Latency is zero.</li>
-					<li>Bandwidth is infinite.</li>
-					<li>The network is secure.</li>
-					<li>Topology doesn't change.</li>
-					<li>There is one administrator.</li>
-					<li>Transport cost is zero.</li>
-					<li>The network is homogeneous.</li>
-				</ol>	
-				<div class='source'>Source: <a href="http://blogs.oracle.com/jag/resource/Fallacies.html">http://blogs.oracle.com/jag/resource/Fallacies.html</a></div>				
-			</article>
-			
-			
-			<article class="meme">		
-				<img class="centered" src="assets/memes/okay.png">
-				<div class='source'><a href="http://ragefac.es/43">http://ragefac.es/43</a></div>
-			</article>						
 			
 			
 			<article class="">
@@ -243,7 +219,7 @@
 			
 			<article class="">
 				<h3>Why not use TCP or UDP sockets directly?</h3>
-				<p>Because it is a very bad idea most of the time. By not using existing application-layer protocols, you lose:
+				<p>Because it is a very bad idea most of the time. By not using existing application-layer protocols, we lose:
 				<ul>
 					<li>abstraction</li>
 					<li>knowledge and experience</li>
@@ -337,22 +313,12 @@
 				<p>Using the <span class="mawi-color">Hypertext Transfer Protocol</span> as a low-level, interchangable <span class="nawi-color">transport protocol</span> for XML-encoded messages is not the same as "web".</p>
 			</article>
 			
-			<article class="meme">		
-				<h3>Y U NO USE HTTP RIGHT?</h3>
-				<img class="centered" src="assets/memes/yuno.png">
-				<div class='source'><a href="http://ragefac.es/106">http://ragefac.es/106</a></div>
-			</article>
-
 			
 			<article class="fill">	
 				<h1>The Challenge</h1>
 				<p style="font-size:120%; line-height:165%">Can we build distributed applications using the web like it is supposed to, embracing its ideas and concepts?</p>			
 			</article>	
 			
-			<article class="meme">		
-				<img class="centered" src="assets/memes/accepted.jpg">
-				<div class='source'><a href="http://ragefac.es/127">http://ragefac.es/127</a></div>
-			</article>																			
 		</section>
 
 		<section>
@@ -682,10 +648,10 @@ Sorry, can't do that!</pre>
 			 			
 			<article>
 				<h3>Hypermedia: Links</h3>
-<section class="build"><pre>&lt;a href=&quot;/foo#bar&quot;&gt;Over there!&lt;/a&gt;</pre></section>
-<section class="build"><pre>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;mystyle.css&quot; /&gt;</pre></section>
-<section class="build"><pre>&lt;a rel=&quot;next&quot; href=&quot;http://example.org/entries/3&quot;&gt;next item&lt;/a&gt;</pre></section>
-<section class="build"><pre>&lt;a rel=&quot;crush&quot; href=&quot;http://social.net/hot-person&quot;&gt;Hot!&lt;/a&gt;</pre></section>
+<section class=""><pre>&lt;a href=&quot;/foo#bar&quot;&gt;Over there!&lt;/a&gt;</pre></section>
+<section class=""><pre>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;mystyle.css&quot; /&gt;</pre></section>
+<section class=""><pre>&lt;a rel=&quot;next&quot; href=&quot;http://example.org/entries/3&quot;&gt;next item&lt;/a&gt;</pre></section>
+<section class=""><pre>&lt;a rel=&quot;crush&quot; href=&quot;http://social.net/hot-person&quot;&gt;Hot!&lt;/a&gt;</pre></section>
 			</article> 			
 						
 			<article>
@@ -1674,8 +1640,6 @@ Location: /todo/items/4711
 				<p>Title <a href="http://www.flickr.com/photos/bitzcelt/916823243">image</a> by <a href="http://www.flickr.com/photos/bitzcelt/">bitzcelt</a>, cc-by-nc-nd 2.0.</p>
 				<p>Icon set by <a href="http://www.picol.org">picol</a>, cc-by-sa 3.0.</p>
 
-				<div class="meme"><p>Rage faces by <a href="http://ragefac.es/">ragefac.es</a>, cc-by-nc-nd 3.0.</p></div>
-
 			</article>	
 			
 			<article class="">
@@ -1726,6 +1690,23 @@ Location: /todo/items/4711
 				<h1>Distributed Systems</h1>
 				<h3>Middleware Systems</h3>
 			</article>		
+			
+			<article>
+				<h3>Fallacies of Distributed Computing</h3>
+				<ol class="#build">
+					<li>The network is reliable.</li>
+					<li>Latency is zero.</li>
+					<li>Bandwidth is infinite.</li>
+					<li>The network is secure.</li>
+					<li>Topology doesn't change.</li>
+					<li>There is one administrator.</li>
+					<li>Transport cost is zero.</li>
+					<li>The network is homogeneous.</li>
+				</ol>	
+				<div class='source'>Source: <a href="http://blogs.oracle.com/jag/resource/Fallacies.html">http://blogs.oracle.com/jag/resource/Fallacies.html</a></div>				
+			</article>
+			
+			
 			
 			<article class="">
 				<h3>Echo Server in Java</h3>
