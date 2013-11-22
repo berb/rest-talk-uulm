@@ -450,7 +450,7 @@ article.fill iframe {
   z-index: -1;
 }
 
-article.fill img {
+article.fill img:not(.nofill) {
   position: absolute;
   left: 0;
   top: 0;
@@ -541,7 +541,7 @@ div.author::before {
 /* Size variants */
 
 article.smaller p,
-article.smaller ul,article.smaller dl {
+article.smaller ul, article.smaller dl {
   font-size: 20px;
   line-height: 24px;
   letter-spacing: 0;
