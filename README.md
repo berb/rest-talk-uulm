@@ -1,3 +1,3 @@
 # rest-talk-uulm
 
-Talk about REST
+Talk about REST: http://erb.io/rest
