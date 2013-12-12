@@ -208,10 +208,10 @@
 			<article class="">
 				<h3>Programming Distributed Applications</h3>
 				<dl>
-					<dt class="med-color">local application</dt>
+					<dt class="med-color">Local application</dt>
 					<dd>runs on a single machine (your computer)</dd>
 					
-					<dt class="med-color">distributed application</dt>
+					<dt class="med-color">Distributed application</dt>
 					<dd>runs on multiple machines, communicates</dd>
 				</dl>
 				<p>We need a way to incorporate <span class="in-color">communication and coordination</span> into our code.</p>
@@ -224,7 +224,7 @@
 			
 			<article class="">
 				<h3>Why not use TCP or UDP sockets directly?</h3>
-				<p>Because it is a very bad idea most of the time. By not using existing application-layer protocols, we lose:
+				<p>Because it is a <strong>very bad idea</strong> most of the time. By not using existing application-layer protocols, we lose:
 				<ul>
 					<li>abstraction</li>
 					<li>knowledge and experience</li>
@@ -247,42 +247,14 @@
 				</ul>
 			</article>	
 			
-															
 			<article class="">
-				<h3>Message-oriented Middleware</h3>
-				<ul>
-					<li>message queues</li>
-					<li>messaging between processes</li>
-					<li>often asynchronous and non-blocking</li>
-					<li>various messaging patterns</li>
-				</ul>
-				<h4>Examples</h4>
-				<p>JMS, AMQP, ØMQ, etc.</p>
-			</article>									
-															
+				<h3>Message Queues</h3>							
+				<img class="centered" style="" src="assets/illu/mq.svg">				
+			</article>
 
 			
 			<article class="">
-				<h3>Message Queue Example: Message Flow</h3>							
-				<img class="centered" style="" src="assets/illu/mq.svg">				
-			</article>
-															
-			<article class="">
-				<h3>Remote Procedure Calls &amp; Distributed Objects</h3>
-				<ul>
-					<li>make remote calls look like local calls</li>
-					<li>access/location transparency</li>
-					<li>RPC: procedure calls</li>
-					<li>RMI: method calls + distributable objects</li>
-					<li>generic interface definitions, language-specific implementations</li>
-					<li>often blocking and synchronous, just like local calls</li>
-				</ul>
-				<h4>Examples</h4>
-				<p>Sun RPC, CORBA, Java RMI, Apache thrift, etc.</p>
-			</article>
-			
-			<article class="">
-				<h3>RMI Example: Call Flow</h3>							
+				<h3>Remote Procedure Calls &amp; Distributed Objects</h3>							
 				<img class="centered" style="width:100%" src="assets/illu/rmi.svg">
 			</article>
 																		
@@ -661,7 +633,7 @@ Sorry, can't do that!</pre>
 						
 			<article>
 				<h3>Hypermedia: Link Relations</h3>
-				<p>Semantic description of link relations.</p>
+				<p><strong>Semantic</strong> description of link relations.</p>
 				<ul>
 					<li><a href="http://www.iana.org/assignments/link-relations/link-relations.xml">IANA Link Relations</a></li>
 					<li><a href="http://microformats.org/wiki/existing-rel-values">HTML rel values</a></li>
@@ -874,7 +846,7 @@ name=Benjamin+Erb&login=b_erb</pre></section>
 				</ul>				
 							
 				<div class="build">
-				<p style="margin-top:30px;" class="box bg-accent-color">XML and JSON are also popular generic formats. Note however, that they don't have a standardized way of expressing links or forms.</p>
+				<p style="margin-top:30px;" class="box nawi-color">XML and JSON are also popular generic formats. Note however, that they don't have a standardized way of expressing links or forms.</p>
 				</div>						
 			</article>	
 			
@@ -1652,27 +1624,8 @@ Location: /todo/items/4711
 				<p>Title <a href="http://www.flickr.com/photos/bitzcelt/916823243">image</a> by <a href="http://www.flickr.com/photos/bitzcelt/">bitzcelt</a>, cc-by-nc-nd 2.0.</p>
 				<p>Icon set by <a href="http://www.picol.org">picol</a>, cc-by-sa 3.0.</p>
 				<p>Source: <a href="https://github.com/berb/rest-talk-uulm">github.com/berb/rest-talk-uulm</a></p>
+				<p>View Online: <a href="https://erb.io/rest">erb.io/rest</a></p>
 			</article>	
-			
-			<article class="">
-				<h3>Shameless Self-promotion</h3>
-				<p><strong><a href="">UlmAPI.de</a></strong><br/>
-				<em>datalove ♥ – a local group of open data enthusiasts</em></p>
-				<p>Interested in open data and building cool (web) stuff? Join us!</p>
-				
-				<p><strong><a href="">IOException.de</a></strong><br/>
-				<em>selected nerd stuff by CS students @uulm</em></p>
-				<p>We are always looking for new authors and guest contributions!</p>
-			</article>	
-
-			<article class="">
-				<h3>Shameless Announcement: Talk</h3>
-				<p style="font-size:120%"><strong>node.js</strong><br/>
-				<em>Single-threaded and event-driven<br/>JavaScript outside your browser</em></p>
-				<p>ChaosSeminar (with Benjamin Erb, Michael Müller)<br/>
-				February 13, 2012; 20:00<br/>
-				H20, Uni Ulm</p>
-			</article>
 			
 			<article class="fill">
 				<h1>Thank you!</h1>
@@ -1717,6 +1670,21 @@ Location: /todo/items/4711
 				</ol>	
 				<div class='source'>Source: <a href="http://blogs.oracle.com/jag/resource/Fallacies.html">http://blogs.oracle.com/jag/resource/Fallacies.html</a></div>				
 			</article>
+			
+															
+			<article class="">
+				<h3>Message-oriented Middleware</h3>
+				<ul>
+					<li>message queues</li>
+					<li>messaging between processes</li>
+					<li>often asynchronous and non-blocking</li>
+					<li>various messaging patterns</li>
+				</ul>
+				<h4>Examples</h4>
+				<p>JMS, AMQP, ØMQ, etc.</p>
+			</article>									
+															
+			
 			
 			
 			
@@ -1783,6 +1751,22 @@ zmqSocket.send("Hello");</pre>
 				</section>
 				<div  class='source'>More about ØMQ: <a href="http://www.zeromq.org/">zeromq.org</a></div>				
 			</article>						
+			
+																		
+			<article class="">
+				<h3>Remote Procedure Calls &amp; Distributed Objects</h3>
+				<ul>
+					<li>make remote calls look like local calls</li>
+					<li>access/location transparency</li>
+					<li>RPC: procedure calls</li>
+					<li>RMI: method calls + distributable objects</li>
+					<li>generic interface definitions, language-specific implementations</li>
+					<li>often blocking and synchronous, just like local calls</li>
+				</ul>
+				<h4>Examples</h4>
+				<p>Sun RPC, CORBA, Java RMI, Apache thrift, etc.</p>
+			</article>
+			
 			
 			<article class="smaller">
 				<h3>RMI Example: Remote Adder with Java RMI</h3>
